@@ -33,7 +33,7 @@ class SpyGlass
 class Life_Client_Core
 {
 	tag = "life";
-	
+
 	class Master_Directory
 	{
 		file = "core";
@@ -44,7 +44,7 @@ class Life_Client_Core
 		class initMedic {};
 		class welcomeNotification {};
 	};
-	
+
 	class Effekte
 	{
 		file = "core\effekte";
@@ -64,7 +64,7 @@ class Life_Client_Core
 		class adminSpectate {};
 		class adminTptoPlayer {};
 	};
-	
+
 	class Medical_System
 	{
 		file = "core\medical";
@@ -74,6 +74,7 @@ class Life_Client_Core
 		class revivePlayer {};
 		class revived {};
 		class medicMarkers {};
+		class medicGroupMarkers {};
 		class requestMedic {};
 		class medicRequest {};
 		class deathScreen {};
@@ -82,7 +83,7 @@ class Life_Client_Core
 		class medicLights {};
 		class medicSiren {};
 	};
-	
+
 	class Actions
 	{
 		file = "core\actions";
@@ -182,7 +183,7 @@ class Life_Client_Core
 		class vehicleAnimate {};
 		class weaponShopCfg {};
 		class houseConfig {};
-		
+
 		//Clothing Store Configs
 		class clothing_cop {};
 		class clothing_med {};
@@ -382,7 +383,7 @@ class Life_Client_Core
 		class ticketPaid {};
 		class wantedGrab {};
 	};
-	
+
 	class Gangs
 	{
 		file = "core\gangs";
@@ -424,7 +425,7 @@ class Life_Client_Core
 		class chopShopSelection {};
 		class chopShopSell {};
 	};
-	
+
 	class ShopsD41
 	{
 		file = "core\shops\D41";
