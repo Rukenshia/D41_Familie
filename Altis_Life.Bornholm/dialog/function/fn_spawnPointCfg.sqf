@@ -108,7 +108,21 @@ switch (_side) do
 	{
 		_return = [];
 
-		if(license_med_adac && playerSide == independent) then {
+		if (license_med_adac) then {
+			_return = _return + [
+									["civ_spawn_31","ADAC Service","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+									["civ_spawn_32","ADAC HQ Service","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+									["civ_spawn_33","ADAC Service","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+									["civ_spawn_34","ADAC Service","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
+								];
+		};
+
+		_return = _return +[
+								["medic_spawn_3","Aakirkeby Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
+								["medic_spawn_1","Roenne Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
+								["medic_spawn_2","Nexoe Regional","\a3\ui_f\data\map\MapControl\hospital_ca.paa"]
+							];
+		/*if(license_med_adac && playerSide == independent) then {
 		_return = _return + [
 								["civ_spawn_31","ADAC Service","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
 								["civ_spawn_32","ADAC HQ Service","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
@@ -123,7 +137,7 @@ switch (_side) do
 								["medic_spawn_1","Roenne Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
 								["medic_spawn_2","Nexoe Regional","\a3\ui_f\data\map\MapControl\hospital_ca.paa"]
 							];
-		};
+		};*/
 
 	};
 };
