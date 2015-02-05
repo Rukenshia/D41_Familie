@@ -27,7 +27,7 @@ switch (_shop) do
 			["C_Offroad_01_repair_F",1200], //Isuzu Repair
 			["D41_Truck_01_mover_F",5000], // Tempest Mover	ADAC
 			["D41_ADAC_helicopter",9000], // Littlebird ADAC
-			["D41_Heli_Transport_04_F",40000] // Taru Transport
+			["D41_Heli_Transport_04_F",25000] // Taru Transport
 		];
 	};
 
@@ -47,6 +47,11 @@ switch (_shop) do
 			["D41_ka60_medic",7500],			//Orca Medic
 			["D41_RHS_UH60M_MEV",8500] //UH60 Medic
 		];
+
+		if (__GETC__(life_medicLevel) > 2) then
+		{
+			_return set[count _return, ["I_Heli_light_03_unarmed_F", 18750]];
+		};
 	};
 
 	case "civ_car":
@@ -269,10 +274,10 @@ switch (_shop) do
 			_return set[count _return,
 			["D41_police_helicopter",28000]];
 		};
-		if(__GETC__(life_coplevel) > 5 && !license_cop_gangfirma) then
+		if(__GETC__(life_coplevel) > 4 && !license_cop_gangfirma) then
 		{
 			_return set[count _return,
-			["I_Heli_light_03_unarmed_F",65500]];
+			["I_Heli_light_03_unarmed_F",18750]];
 		};
 		if(license_cop_swat && !license_cop_gangfirma) then
 		{
