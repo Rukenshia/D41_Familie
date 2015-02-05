@@ -1,7 +1,7 @@
 /*
 	File: fn_vehicleShopBuy.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Does something with vehicle purchasing.
 */
@@ -55,6 +55,10 @@ if((life_veh_shop select 0) == "med_air_hs") then
 	{
 		_vehicle = createVehicle [_className,[0,0,999],[], 0, "NONE"];
 		waitUntil {!isNil "_vehicle"}; //Wait?
+		if (_className == "D41_RHS_UH60M") then {
+			_vehicle setVehicleAmmo 0;
+			_vehicle setVehicleAmmoDef 0;
+		};
 		_vehicle allowDamage false;
 		_vehicle lock 2;
 		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
@@ -69,6 +73,10 @@ if((life_veh_shop select 0) == "med_air_hs") then
 	{
 		_vehicle = createVehicle [_className, (getMarkerPos _spawnPoint), [], 0, "NONE"];
 		waitUntil {!isNil "_vehicle"}; //Wait?
+		if (_className == "D41_RHS_UH60M") then {
+			_vehicle setVehicleAmmo 0;
+			_vehicle setVehicleAmmoDef 0;
+		};
 		_vehicle allowDamage false; //Temp disable damage handling..
 		_vehicle lock 2;
 		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
@@ -105,7 +113,7 @@ switch(playerSide) do
 					[_vehicle,"civ_littlebird",true] spawn life_fnc_vehicleAnimate;
 				};
 		};
-	
+
 	case independent: {
 		[_vehicle,"med_offroad",true] spawn life_fnc_vehicleAnimate;
 	};

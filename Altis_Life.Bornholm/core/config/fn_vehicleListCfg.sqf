@@ -208,7 +208,7 @@ switch (_shop) do
 			//_return set[count _return,
 			//["D41_B_m1151_m2_deployment_Bumper",75000]];
 		};
-		if((__GETC__(life_coplevel) > 10) && license_cop_swat && !license_cop_gangfirma) then
+		if((__GETC__(life_coplevel) > 5) && !license_cop_gangfirma) then
 		{
 			//_return set[count _return,
 			//["D41_B_M998A2_sov_M2",75000]];
@@ -334,7 +334,7 @@ switch (_shop) do
 		[
 			["B_Boat_Transport_01_F",1500],
 			["C_Boat_Civil_01_police_F",7500],
-			["B_Boat_Armed_01_minigun_F",28000],
+			//["B_Boat_Armed_01_minigun_F",28000],
 			["B_SDV_01_F",3750]
 		];
 	};

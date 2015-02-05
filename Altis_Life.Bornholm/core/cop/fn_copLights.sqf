@@ -21,7 +21,6 @@ _lightleft setLightAmbient [0.1,0.1,1];
 
 switch (typeOf _vehicle) do
 {
-	hint format["type: %1", typeOf _vehicle];
 	case "Offroad_Pol":
 	{
 		_lightleft lightAttachObject [_vehicle, [-0.37, 0.0, 0.56]];
@@ -52,6 +51,10 @@ switch (typeOf _vehicle) do
 		_lightleft lightAttachObject [_vehicle, [0.0, 0.0, 0.2]];
 	};
 
+	case "D41_rhsusf_m1025_d":
+	{
+		_lightleft lightAttachObject [_vehicle, [-0.45, 0.0, 1.9]];
+	};
 };
 
 _lightleft setLightAttenuation [0.181, 0, 1000, 130];
@@ -96,6 +99,11 @@ switch (typeOf _vehicle) do
 	{
 		// Same Position as left light, love that little bulb!
 		_lightright lightAttachObject [_vehicle, [0.0, 0.0, 0.2]];
+	};
+
+	case "D41_rhsusf_m1025_d":
+	{
+		_lightright lightAttachObject [_vehicle, [0.45, 0.0, 1.9]];
 	};
 };
 

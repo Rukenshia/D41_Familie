@@ -1,7 +1,7 @@
 /*
 	File: fn_spawnVehicle.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Sends the query request to the database, if an array is returned then it creates
 	the vehicle if it's not in use or dead.
@@ -109,7 +109,7 @@ if((_vInfo select 1) == "civ" && ((_vInfo select 2) in _civHeli)) then //ALTE AB
 	[[_vehicle,"civ_littlebird",true],"life_fnc_vehicleAnimate",_unit,false] call life_fnc_MP;
 };
 
-if((_vInfo select 1) == "cop" && (_vInfo select 2) in ["C_SUV_01_F","C_Offroad_01_F","D41_MRAP_01_F","Offroad_Pol","BMW_X6M_Pol","Offroad_SWAT","D41_swat_hunter"]) then
+if((_vInfo select 1) == "cop" && (_vInfo select 2) in ["C_SUV_01_F","C_Offroad_01_F","D41_MRAP_01_F","Offroad_Pol","BMW_X6M_Pol","Offroad_SWAT","D41_swat_hunter","D41_Lada_Civ_05","D41_rhsusf_m1025_d"]) then
 {
 	[[_vehicle,"cop_offroad",true],"life_fnc_vehicleAnimate",_unit,false] call life_fnc_MP;
 };

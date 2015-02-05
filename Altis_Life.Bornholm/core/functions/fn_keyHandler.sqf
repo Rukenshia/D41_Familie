@@ -187,7 +187,7 @@ switch (_code) do
 		if(playerSide in [west,independent]) then
 		{
 			_veh = vehicle player;
-			if(_veh != player && (typeOf vehicle player) in ["Offroad_Pol","D41_Offroad_Medic","BMW_X6M_Pol","Offroad_SWAT","D41_swat_hunter","D41_Lada_Civ_05"]) then
+			if(_veh != player && (typeOf vehicle player) in ["Offroad_Pol","D41_Offroad_Medic","BMW_X6M_Pol","Offroad_SWAT","D41_swat_hunter","D41_Lada_Civ_05","D41_rhsusf_m1025_d"]) then
 			{
 				if(!isNil {_veh getVariable "lights"}) then
 				{
