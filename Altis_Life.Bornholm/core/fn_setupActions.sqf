@@ -42,6 +42,12 @@ switch (playerSide) do
 		(player distance D41_KnastZaun < 4) && (getDammage D41_Knastzaun == 1)']];
 
 	};
+
+	case independent:
+	{
+		life_actions = life_actions + [player addAction["<t color='#ffff33'>Patient heilen</t>",life_fnc_healPlayer,"",0,false,false,"",
+		'(isPlayer cursorTarget && (damage cursorTarget) > 0.1 && player distance cursorTarget < 3.0)']];
+	};
 };
 
 //Handy zerstören/wegnehmen
@@ -60,6 +66,8 @@ life_actions = life_actions + [player addAction["Person entwaffnen!",life_fnc_en
 //life_actions = life_actions + [player addAction["<t color='#ffff33'>Ohrenstöpsel einstecken</t>",life_fnc_D41_EarPlug,"",0,false,false,"",'(vehicle player isKindOf "Car") && (!D41_EarPlugInUse)']];
 //life_actions = life_actions + [player addAction["<t color='#ffff33'>Ohrenstöpsel einstecken</t>",life_fnc_D41_EarPlug,"",0,false,false,"",'(vehicle player isKindOf "Ship") && (!D41_EarPlugInUse)']];
 //life_actions = life_actions + [player addAction["<t color='#ffff33'>Ohrenstöpsel herausnehmen</t>",{D41_EarPlugInUse = false},"",0,false,false,"",'D41_EarPlugInUse']];
+
+//Medic: Heilen auf 100%
 
 //Geld aufheben
 life_actions = life_actions + [player addAction["Geld aufheben",{_obj = cursorTarget; _obj setVariable["inUse",TRUE,TRUE]; _handle = [_obj] spawn life_fnc_pickupMoney; waitUntil {scriptDone _handle};},"",0,false,false,"",'

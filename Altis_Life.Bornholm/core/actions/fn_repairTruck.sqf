@@ -1,7 +1,7 @@
 /*
 	File: fn_repairTruck.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Main functionality for toolkits, to be revised in later version.
 */
@@ -25,7 +25,7 @@ if((_veh isKindOf "Car") OR (_veh isKindOf "Ship") OR (_veh isKindOf "Air")) the
 		_pgText ctrlSetText format["%2 (1%1)...","%",_upp];
 		_progress progressSetPosition 0.01;
 		_cP = 0.01;
-		
+
 		while{true} do
 		{
 			if(animationState player != "AinvPknlMstpSnonWnonDnon_medic_1" && (D41_AnimStop == 0)) then
@@ -49,14 +49,17 @@ if((_veh isKindOf "Car") OR (_veh isKindOf "Ship") OR (_veh isKindOf "Air")) the
 			if(life_interrupted) exitWith {};
 			if(!("ToolKit" in (items player))) exitWith {hint "Bescheissen is nich! Spiel Fair!"};
 		};
-		
+
 		life_action_inUse = false;
 		5 cutText ["","PLAIN"];
 		player playActionNow "stop";
 		if(life_interrupted) exitWith {life_interrupted = false; titleText[localize "STR_NOTF_ActionCancel","PLAIN"]; life_action_inUse = false;};
 		if(player != vehicle player) exitWith {titleText[localize "STR_NOTF_RepairingInVehicle","PLAIN"];};
 		if(!("ToolKit" in (items player))) exitWith {hint "Bescheissen is nich! Spiel Fair!"};
-		player removeItem "ToolKit";
+		if (playerSide != independent || !license_med_adac) then {
+			player removeItem "ToolKit";
+		};
+
 		_veh setDamage 0;
 		titleText[localize "STR_NOTF_RepairedVehicle","PLAIN"];
 	};

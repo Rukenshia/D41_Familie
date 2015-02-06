@@ -82,6 +82,7 @@ class Life_Client_Core
 		class medicSirenLights {};
 		class medicLights {};
 		class medicSiren {};
+		class healPlayer {};
 	};
 
 	class Actions
@@ -147,6 +148,9 @@ class Life_Client_Core
 		class getPdNegKarm {};
 		class pd_neg_Finish {};
 		class pd_pos_Finish {};
+
+		// Familie
+		class showTitleText {};
 	};
 
 	class Housing
