@@ -34,23 +34,36 @@ switch (_shop) do
 	case "med_shop":
 	{
 		_return = [
-			["D41_Offroad_Medic",1000],
-			["D41_B_M997A2_Ambulance",3000],
-			["D41_B_HMMWV_Medevac",4000]
+			["D41_Offroad_Medic",2000],
+			["C_Van_01_box_F",6000]
 		];
+
+		if (__GETC__(life_medicLevel) > 2) then {
+			_return set[count _return, ["O_Truck_02_medical_F",23000]];
+		};
+
+		if (__GETC__(life_medicLevel) > 4) then {
+			_return set[count _return, ["D41_B_M997A2_Ambulance",15000]];
+			_return set[count _return, ["D41_B_HMMWV_Medevac",16500]];
+		};
 	};
 
 	case "med_air_hs":
 	{
 		_return = [
-			["D41_medic_helicopter",4500],		//Littlebird Medic
-			["D41_ka60_medic",7500],			//Orca Medic
-			["D41_RHS_UH60M_MEV",8500] //UH60 Medic
+			["D41_medic_helicopter",4500]		//Littlebird Medic
 		];
 
-		if (__GETC__(life_medicLevel) > 2) then
-		{
-			_return set[count _return, ["I_Heli_light_03_unarmed_F", 18750]];
+		if (__GETC__(life_medicLevel) > 2) then {
+			_return set[count _return, ["D41_ka60_medic",7500]];
+		};
+
+		if (__GETC__(life_medicLevel) > 3) then {
+			_return set[count _return, ["I_Heli_light_03_unarmed_F", 15000]];
+		};
+
+		if (__GETC__(life_medicLevel) > 4) then {
+			_return set[count _return, ["D41_RHS_UH60M_MEV", 18750]];
 		};
 	};
 
@@ -71,11 +84,13 @@ switch (_shop) do
 			["D41_Gaz24_Civ_01", 3500], //GAZ-24 Blau
 			["D41_Gaz24_Civ_02", 3500], //GAZ-24 Grau
 			["D41_Gaz24_Civ_03", 3950], //GAZ-24 Schwarz
-			//["D41_Golf4_Civ_Weiss", 4900], // Golf IV 1.9 TDI Weiss
-			//["D41_Golf4_Civ_Gelb",4900], // Golf IV 1.9 TDI Gelb
-			//["D41_Golf4_Civ_Gruen",4900], // Golf IV 1.9 TDI Grün
 			["C_Van_01_transport_F",17500]
 		];
+		if(life_D41_Karma > 300) then {
+			_return set[count _return,["D41_Golf4_Civ_Weiss",4900]]; // Golf IV 1.9 TDI Weiss
+      _return set[count _return,["D41_Golf4_Civ_Gelb",4900]]; // Golf IV 1.9 TDI Gelb
+	    _return set[count _return,["D41_Golf4_Civ_Gruen",4900]]; // Golf IV 1.9 TDI Grün
+		};
 		if(life_D41_Karma > 1000)then
         {
             _return set[count _return,["D41_Ikarus_Civ_02",22500]]; // Ikarus 260.03 BUS Verrostet

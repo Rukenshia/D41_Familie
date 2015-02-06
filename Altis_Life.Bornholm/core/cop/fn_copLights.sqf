@@ -31,6 +31,11 @@ switch (typeOf _vehicle) do
 		_lightleft lightAttachObject [_vehicle, [-0.37, 0.0, 0.56]];
 	};
 
+	case "C_Van_01_box_F":
+	{
+		_lightleft lightAttachObject [_vehicle, [-0.85,-0.2,1.35]];
+	};
+
 	case "Offroad_SWAT":
 	{
 		_lightleft lightAttachObject [_vehicle, [-0.37, 0.0, 0.56]];
@@ -78,6 +83,11 @@ switch (typeOf _vehicle) do
 	case "D41_Offroad_Medic":
 	{
 		_lightright lightAttachObject [_vehicle, [0.37, 0.0, 0.56]];
+	};
+
+	case "C_Van_01_box_F":
+	{
+		_lightleft lightAttachObject [_vehicle, [0.85,-0.2,1.35]];
 	};
 
 	case "Offroad_SWAT":

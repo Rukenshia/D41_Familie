@@ -70,7 +70,8 @@ switch (_vehicle) do
 		_ret =
 		[
 			["\a3\soft_f_gamma\Van_01\Data\van_01_ext_co.paa","civ"],
-			["\a3\soft_f_gamma\Van_01\Data\van_01_ext_red_co.paa","civ"]
+			["\a3\soft_f_gamma\Van_01\Data\van_01_ext_red_co.paa","civ"],
+			["textures\medic_rtw_back.paa", "med", "textures\medic_rtw_kab.paa"]
 		];
 	};
 
