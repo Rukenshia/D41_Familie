@@ -520,10 +520,11 @@ player createDiarySubject ["controls","Steuerung"];
 				Left Windows: Interaktionstaste (Hausmenü)<br/>
 				Left Windows + T: Geld aufheben<br/>
 				Left Shift + Num_0: Ergeben<br/><br/>
+				Left Shift + Ende: Ohrstöpsel benutzen<br/><br/>
 
 				Für Cops:<br/>
-				1: Blaulicht<br/>
-				2: Sirene<br/>
+				Left Shift + L: Blaulicht<br/>
+				Ö: Sirene<br/>
 				F: Hupgeräusch wechseln<br/>
 				Left Shift + R: Festnehmen<br/><br/>
 				"

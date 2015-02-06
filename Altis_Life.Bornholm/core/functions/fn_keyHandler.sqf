@@ -151,6 +151,30 @@ switch (_code) do
 	//L Key?
 	case 38:
 	{
+		if (_shift) then {
+			_handled = true;
+			//If cop or medic run checks for turning lights on.
+			if(playerSide in [west,independent]) then
+			{
+				_veh = vehicle player;
+				if(_veh != player && (typeOf vehicle player) in ["Offroad_Pol","D41_Offroad_Medic","BMW_X6M_Pol","Offroad_SWAT","D41_swat_hunter","D41_Lada_Civ_05","D41_rhsusf_m1025_d"]) then
+				{
+					if(!isNil {_veh getVariable "lights"}) then
+					{
+						if(playerSide == west) then
+						{
+							titleText ["Leuchtwerk Ein/Aus","PLAIN"];
+							[_veh] call life_fnc_sirenLights;
+						}
+						else
+						{
+							titleText ["Leuchtwerk Aus","PLAIN"];
+							[_veh] call life_fnc_sirenLights;
+						};
+					};
+				};
+			};
+		};
 		if(playerSide in [west]) then
 		{
 			if(!_alt && !_ctrlKey) then
@@ -185,36 +209,10 @@ switch (_code) do
 		};
 	};
 
-	//Taste 1
-	case 2:
+	// Ö for the Sirön
+	case 39:
 	{
-		//If cop run checks for turning lights on.
-		if(playerSide in [west,independent]) then
-		{
-			_veh = vehicle player;
-			if(_veh != player && (typeOf vehicle player) in ["Offroad_Pol","D41_Offroad_Medic","BMW_X6M_Pol","Offroad_SWAT","D41_swat_hunter","D41_Lada_Civ_05","D41_rhsusf_m1025_d"]) then
-			{
-				if(!isNil {_veh getVariable "lights"}) then
-				{
-					if(playerSide == west) then
-					{
-						titleText ["Leuchtwerk Ein/Aus","PLAIN"];
-						[_veh] call life_fnc_sirenLights;
-					}
-				else
-					{
-						titleText ["Leuchtwerk Aus","PLAIN"];
-						[_veh] call life_fnc_sirenLights;
-					};
-				_handled = true;
-				};
-			};
-		};
-	};
-
-	//Taste 2
-	case 3:
-	{
+		// Turn Siren on/off as cop/medic
 		if(playerSide in [west,independent] && vehicle player != player && !life_siren_active && ((driver vehicle player) == player)) then
 		{
 			[] spawn
@@ -230,7 +228,7 @@ switch (_code) do
 				titleText ["Sirene Aus","PLAIN"];
 				_veh setVariable["siren",false,true];
 			}
-				else
+			else
 			{
 				titleText ["Sirene An","PLAIN"];
 				_veh setVariable["siren",true,true];
@@ -243,6 +241,17 @@ switch (_code) do
 			};
 		};
 	};
+
+	//Taste 1
+	//case 2:
+	//{
+	//};
+
+	//Taste 2
+	//case 3:
+	//{
+
+	//};
 
 	// surrender shift + num 0
 	case 82:
@@ -332,6 +341,16 @@ switch (_code) do
 					};
 				};
 			};
+		};
+	};
+
+	// END KEY
+	// used for Shift+End (Ohrstöpsel)
+	case 207:
+	{
+		if(_shift) then {
+			_handled = true;
+			[] call life_fnc_D41_EarPlug;
 		};
 	};
 };
