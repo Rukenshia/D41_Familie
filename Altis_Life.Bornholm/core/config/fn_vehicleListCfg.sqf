@@ -310,17 +310,14 @@ switch (_shop) do
 
 	case "cop_airhq":
 	{
-		if(__GETC__(life_coplevel) > 2 && !license_cop_gangfirma) then
-		{
-			_return set[count _return,
-			["D41_police_helicopter",28000]];
-		};
-		if(__GETC__(life_coplevel) > 5 && !license_cop_gangfirma) then
+		_return = ["D41_police_helicopter",28000];
+
+		if(__GETC__(life_coplevel) > 3 && !license_cop_gangfirma) then
 		{
 			_return set[count _return,
 			["I_Heli_light_03_unarmed_F",65500]];
 		};
-		if(license_cop_swat && !license_cop_gangfirma) then
+		if((__GETC__(life_coplevel) > 5) || license_cop_swat) && !license_cop_gangfirma) then
 		{
 			_return set[count _return,
 			["D41_RHS_UH60M",75000]];
