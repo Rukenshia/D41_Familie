@@ -19415,7 +19415,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=377;
+		items=378;
 		class Item0
 		{
 			position[]={10472.188,12.088387,1975.0801};
@@ -22529,6 +22529,15 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBrown";
 			angle=-181.08577;
+		};
+		class Item377
+		{
+			position[]={11983.0, 19.0, 19260.0};
+			name="ts_ip_marker";
+			text="TS IP: 46.20.46.230:10122";
+			type="mil_dot";
+			colorName="ColorBlue";
+			angle=0.0;
 		};
 	};
 	class Sensors
