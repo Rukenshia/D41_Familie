@@ -5,14 +5,14 @@
 
 	Description:
 	Config for virtual shops.
-	
+
 			// Jeweils folgende Reihenfolge:	Trinken, Essen, (Wasser, Apfel)
 			//									Reguläre Z-Items (Benzinkannister, Kabelbinder)
 			//									I-Items (Fernglas, Medkit)
 			//									WAFFE, MUNITION, SPEZ. Attachments
 			//									allg. Attachments (reguläre Optics)
 			//									sonstige Austrüstung
-	
+
 */
 private["_shop"];
 _shop = _this select 0;
@@ -26,28 +26,28 @@ switch (_shop) do
 	case "fishmarket": {_return = ["Altis Fisch Markt",["D41_Salema","D41_Ornate","D41_Mackrele","D41_Mullet","D41_Tunfisch","D41_Katzenhai"]]};
 	case "KnastDealer": {_return = ["Knastfras",["D41_WaterBottle","D41_Apfel","D41_Spitzhacke"]]};
 	case "Biergarten": {_return = ["Biergarten",["D41_WaterBottle","D41_Kaffee","D41_Apfelschnaps","D41_Pfirsichschnaps","D41_BeefJerky","D41_Donuts"]]};
-	
+
 	//Edle Rohstoffe u. Weiterverarbeitung
 	case "diamond": {_return = ["Diamantenhandel",["D41_Diamanten"]]};
 	case "Kerosin": {_return = ["Flughafen Tanklager",["D41_Kerosin"]]};
 	case "Stahl": {_return = ["Stahlhandel",["D41_Stahl"]]};
 	case "heroin": {_return = ["Drogen Dealer",["D41_Kokain","D41_Cannabis","D41_Heroin"]]};
 	case "gold": {_return = ["Goldhandel",["D41_GoldBarren"]]};
-	
+
 	//Grosshandel
 	case "metall": {_return = ["Metallgroßhandel",["D41_Eisen","D41_Kupfer"]]};
 	case "oil": {_return = ["Ölgroßhandel",["D41_Oel","D41_BenzinKanister"]]};
 	case "mineralien": {_return = ["Mineralien und Gesteine Großhandel",["D41_Kohle","D41_Kalkstein"]]};
 	case "baumaterial": {_return = ["Baumaterial Großhandel",["D41_Glas","D41_Ton","D41_Zement"]]};
-	
+
 	//Allgemeine Shops
-	case "market": {if((_shop == "market") && !license_civ_rebel && (life_D41_Karma >= -4000)) then {_return = 
+	case "market": {if((_shop == "market") && !license_civ_rebel && (life_D41_Karma >= -4000)) then {_return =
 		["Supermarkt",
 					["D41_WaterBottle","D41_Apfelsaft","D41_Pfirsichsaft","D41_EnergyDrink","D41_Apfelschnaps","D41_Pfirsichschnaps","D41_Hasenfleisch","D41_Apfel","D41_Pfirsich","D41_BeefJerky",
 					"D41_BenzinKanister","D41_LagerkisteKlein","D41_LagerkisteGross","D41_LagerkisteLagerhaus",
 					"Binocular","ItemMap","ItemCompass","ItemWatch","ItemGPS","ItemRadio","ToolKit","FirstAidKit","NVGoggles"]
 					]};
-				};	
+				};
 	case "med": {if((_shop == "med") && playerSide == independent && ((call life_mediclevel) >= 2)) then {_return =
 		["Medic Item Shop",
 					["D41_WaterBottle","D41_Kaffee","D41_Apfelsaft","D41_Pfirsichsaft","D41_EnergyDrink","D41_Donuts","D41_Hasenfleisch","D41_BeefJerky",
@@ -57,7 +57,7 @@ switch (_shop) do
 	case "Werkzeuge": {_return = ["Werkzeugladen",["D41_Gartenschere","D41_Schaufel","D41_Schuerfgeschirr","D41_Bohrausruestung","D41_Spitzhacke","D41_Bolzenschneider"]]
 				};
 	case "gangadac": {
-					if((_shop == "gangadac") && license_med_adac && playerSide == independent) then {_return = 
+					if((_shop == "gangadac") && license_med_adac && playerSide == independent) then {_return =
 		["ADAC Market",
 					["D41_WaterBottle","D41_Apfelsaft","D41_Pfirsichsaft","D41_EnergyDrink","D41_Hasenfleisch","D41_BeefJerky",
 					"D41_BenzinKanister","D41_Dietrich","ItemGPS","Binocular","ToolKit","FirstAidKit","ItemRadio","NVGoggles","pmc_earpiece"]
@@ -77,7 +77,7 @@ switch (_shop) do
 					"optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","acc_flashlight","D41_Dietrich"]
 					]};
 				};
-				
+
 	case "gang1": {
 					if((_shop == "gang1")) then {_return =
 		["Waffenkiste",
@@ -90,7 +90,7 @@ switch (_shop) do
 					"optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","optic_MRCO","CUP_optic_CompM2_Black","acc_flashlight"]
 					]};
 				};
-				
+
 	case "gang2": {
 					if((_shop == "gang2")) then {_return =
 		["Waffenkiste",
@@ -102,7 +102,7 @@ switch (_shop) do
 					"optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","optic_MRCO","CUP_optic_CompM2_Black","acc_flashlight"]
 					]};
 				};
-				
+
 	case "gang3": {
 					if((_shop == "gang3")) then {_return =
 		["Waffenkiste",
@@ -115,35 +115,42 @@ switch (_shop) do
 					"optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","optic_MRCO","CUP_optic_CompM2_Black","acc_flashlight"]
 					]};
 				};
-	
+
 	//POLIZEI
 	case "copitems": {
-					if((_shop == "copitems") && (playerSide == west) && !license_cop_gangfirma) then {_return =
-		["Polizei Ausrüstung",
-					["D41_Kaffee","D41_EnergyDrink","D41_Donuts",
-					"D41_BombeWegMachtKit","D41_Nagelband","D41_Mauer","D41_Strahler","D41_Schranke","D41_Blitzer","D41_Dietrich",
-					"D41_BenzinKanister","ItemGPS","Rangefinder","ToolKit","FirstAidKit","ItemRadio","NVGoggles","NVGoggles_OPFOR"]
-					]};
+					if((_shop == "copitems") && (playerSide == west) && !license_cop_gangfirma) then {
+						_return =
+						["Polizei Ausrüstung",
+							["D41_Kaffee","D41_EnergyDrink","D41_Donuts",
+							"D41_BombeWegMachtKit","D41_Nagelband","D41_Mauer","D41_Strahler","D41_Schranke","D41_Blitzer","D41_Dietrich",
+							"D41_BenzinKanister","ItemGPS","Rangefinder","ToolKit","FirstAidKit","ItemRadio","NVGoggles","NVGoggles_OPFOR"]
+						];
+
+						// Remove that Blitzer!
+						if (__GETC__(life_copLevel) < 4) then {
+							_return set [1, (_return select 1) - ["D41_Blitzer"]];
+						};
+					};
 				};
 
 	case "cop":	{
-					if((_shop == "cop") && ((call life_coplevel) == 1) && !license_cop_gangfirma) then {_return = 
+					if((_shop == "cop") && ((call life_coplevel) == 1) && !license_cop_gangfirma) then {_return =
 		["Rekruten Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
 					"optic_ACO_grn","optic_Aco","acc_flashlight","acc_pointer_IR"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) == 2) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) == 2) && !license_cop_gangfirma) then {_return =
 		["Officer Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
 					"optic_ACO_grn","optic_Aco","optic_MRCO","acc_flashlight","acc_pointer_IR"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) == 3) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) == 3) && !license_cop_gangfirma) then {_return =
 		["Patrol Officer Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -151,8 +158,8 @@ switch (_shop) do
 					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
 					"optic_ACO_grn","optic_Aco","optic_MRCO","acc_flashlight","acc_pointer_IR"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) == 4) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) == 4) && !license_cop_gangfirma) then {_return =
 		["Master Patrol Officer Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -161,8 +168,8 @@ switch (_shop) do
 					"hlc_rifle_M4","30Rnd_556x45_Stanag",
 					"FHQ_optic_AC11704","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15","pmc_earpiece"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) == 5) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) == 5) && !license_cop_gangfirma) then {_return =
 		["Sergeant Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -175,7 +182,7 @@ switch (_shop) do
 					"HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 
-					if((_shop == "cop") && ((call life_coplevel) == 6) && !license_cop_gangfirma) then {_return = 
+					if((_shop == "cop") && ((call life_coplevel) == 6) && !license_cop_gangfirma) then {_return =
 		["Leutenant Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -188,8 +195,8 @@ switch (_shop) do
 					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) == 7) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) == 7) && !license_cop_gangfirma) then {_return =
 		["Captain Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -203,8 +210,8 @@ switch (_shop) do
 					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"Laserdesignator","HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) == 8) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) == 8) && !license_cop_gangfirma) then {_return =
 		["Inspector Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -219,8 +226,8 @@ switch (_shop) do
 					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"Laserdesignator","HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
-					
-					if((_shop == "cop") && ((call life_coplevel) >= 9) && !license_cop_gangfirma) then {_return = 
+
+					if((_shop == "cop") && ((call life_coplevel) >= 9) && !license_cop_gangfirma) then {_return =
 		["Detective Shop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
@@ -237,7 +244,7 @@ switch (_shop) do
 					"Laserdesignator","HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 				};
-	
+
 	case "copswat": {if((_shop == "copswat") && (playerSide == west) && license_cop_swat) then {_return =
 		["SWAT Ausrüstung",
 					["RH_p226","RH_15Rnd_9x19_SIG","RH_suppr9",
@@ -276,15 +283,15 @@ switch (_shop) do
 				};
 
 	case "firmawaffen":	{
-					if((_shop == "firmawaffen") && ((call life_coplevel) == 1) && license_cop_gangfirma) then {_return = 
+					if((_shop == "firmawaffen") && ((call life_coplevel) == 1) && license_cop_gangfirma) then {_return =
 		["Firma Rekrutenshop",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"hlc_smg_mp510","hlc_30Rnd_10mm_B_MP5",
 					"optic_ACO_grn","FHQ_optic_AC11704","FHQ_optic_AC12136","optic_MRCO","optic_Arco","optic_Hamr",
 					"acc_flashlight","acc_pointer_IR","FHQ_acc_LLM01L","RH_peq15","RH_peq15_top","RH_peq2","RH_peq2_top","RH_SFM952V","RH_SFM952V_tan"]
 					]};
-					
-					if((_shop == "firmawaffen") && ((call life_coplevel) > 2) && ((call life_coplevel) < 5) && license_cop_gangfirma) then {_return = 
+
+					if((_shop == "firmawaffen") && ((call life_coplevel) > 2) && ((call life_coplevel) < 5) && license_cop_gangfirma) then {_return =
 		["Firma Mitglieder",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"RH_usp","RH_12Rnd_45cal_usp","RH_fhusp","RH_X2","RH_M6X","RH_X300",
@@ -293,8 +300,8 @@ switch (_shop) do
 					"optic_ACO_grn","FHQ_optic_AC11704","FHQ_optic_AC12136","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS",
 					"acc_flashlight","acc_pointer_IR","FHQ_acc_LLM01L","RH_peq15","RH_peq15_top","RH_peq2","RH_peq2_top","RH_SFM952V","RH_SFM952V_tan"]
 					]};
-					
-					if((_shop == "firmawaffen") && ((call life_coplevel) > 4) && license_cop_gangfirma) then {_return = 
+
+					if((_shop == "firmawaffen") && ((call life_coplevel) > 4) && license_cop_gangfirma) then {_return =
 		["Firma Führung",
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"RH_m9","RH_m9c","RH_15Rnd_9x19_M9",
@@ -309,7 +316,7 @@ switch (_shop) do
 					]};
 				};
 	case "firmapiloten":	{
-					if((_shop == "firmapiloten") && ((call life_coplevel) > 2) && license_cop_gangfirma && license_cop_air) then {_return = 
+					if((_shop == "firmapiloten") && ((call life_coplevel) > 2) && license_cop_gangfirma && license_cop_air) then {_return =
 		["Firma Piloten",
 					["RH_usp","RH_12Rnd_45cal_usp","RH_fhusp","RH_X2","RH_M6X","RH_X300",
 					"hlc_smg_mp5a4","hlc_30Rnd_9x19_B_MP5",
@@ -317,9 +324,9 @@ switch (_shop) do
 					"acc_flashlight","acc_pointer_IR","FHQ_acc_LLM01L","RH_peq15","RH_peq15_top","RH_peq2","RH_peq2_top","RH_SFM952V","RH_SFM952V_tan"]
 					]};
 				};
-	
+
 	//REBELLEN
-	case "rebel": {if((_shop == "rebel") && license_civ_rebel && (life_D41_Karma <= -2000)) then {_return = 
+	case "rebel": {if((_shop == "rebel") && license_civ_rebel && (life_D41_Karma <= -2000)) then {_return =
 		["Rebellenmarkt",
 					["D41_WaterBottle","D41_EnergyDrink","D41_Apfelschnaps","D41_Pfirsichschnaps","D41_Hasenfleisch","D41_BeefJerky",
 					"D41_BenzinKanister","D41_Dietrich","D41_Bolzenschneider","D41_Sprengladung","D41_Kabelbinder","D41_LagerkisteKlein","D41_LagerkisteGross","D41_LagerkisteLagerhaus",
@@ -327,7 +334,7 @@ switch (_shop) do
 					"Binocular","ItemMap","ItemCompass","ItemWatch","ItemGPS","ItemRadio","ToolKit","FirstAidKit","NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR"]
 					]};
 				};
-				
+
 	case "rebelnorth": {
 					if((_shop == "rebelnorth") && license_civ_rebel && (life_D41_Karma <= -2000) && (life_D41_Karma >= -2999)) then {_return =
 		["Rebellenwaffen Pistolen",
@@ -359,7 +366,7 @@ switch (_shop) do
 					"optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","RH_peq2","FHQ_optic_AC11704",
 					"FHQ_optic_AC12136"]
 					]};
-					
+
 					if((_shop == "rebelnorth") && license_civ_rebel && (life_D41_Karma <= -10000)) then {_return =
 		["Rebellenwaffen Schwer",
 					["RH_g17","RH_17Rnd_9x19_g17",
@@ -378,7 +385,7 @@ switch (_shop) do
 					"FHQ_optic_AC12136"]
 					]};
 				};
-				
+
 	case "rebelsouth": {
 					if((_shop == "rebelsouth") && license_civ_rebel && (life_D41_Karma <= -2000) && (life_D41_Karma >= -2999)) then {_return =
 		["Rebellenwaffen Pistolen",
@@ -414,7 +421,7 @@ switch (_shop) do
 					"hlc_optic_kobra","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","RH_peq2","FHQ_optic_AC11704",
 					"FHQ_optic_AC12136"]
 					]};
-					
+
 					if((_shop == "rebelsouth") && license_civ_rebel && (life_D41_Karma <= -10000)) then {_return =
 		["Rebellenwaffen Schwer",
 					["RH_vp70","RH_18Rnd_9x19_VP",
@@ -433,17 +440,17 @@ switch (_shop) do
 					"FHQ_optic_AC12136"]
 					]};
 				};
-				
+
 	//HERO-TRADER
 	case "heroitems": {
-					if((_shop == "heroitems") && (life_D41_Karma >= 2000) && !license_civ_rebel) then {_return = 
+					if((_shop == "heroitems") && (life_D41_Karma >= 2000) && !license_civ_rebel) then {_return =
 		["Herotrader Markt",
 					["D41_WaterBottle","D41_EnergyDrink","D41_Hasenfleisch","D41_BeefJerky",
 					"D41_BenzinKanister","D41_Kabelbinder","D41_LagerkisteKlein","D41_LagerkisteGross","D41_LagerkisteLagerhaus",
 					"Binocular","ItemMap","ItemCompass","ItemWatch","ItemGPS","ItemRadio","ToolKit","FirstAidKit","NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR"]
 					]};
 				};
-				
+
 	case "herowaffen": {
 					if((_shop == "herowaffen") && (life_D41_Karma >= 2000) && (life_D41_Karma <= 4999) && !license_civ_rebel) then {_return =
 		["Hero Pistolen",
@@ -457,7 +464,7 @@ switch (_shop) do
 					"optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","acc_flashlight",
 					"SmokeShellGreen"]
 					]};
-					
+
 					if((_shop == "herowaffen") && (life_D41_Karma >= 10000) && !license_civ_rebel) then {_return =
 		["Hero Schwer",
 					["D41_TTrackerGummi","Gummigeschiss_Mag",
@@ -468,7 +475,7 @@ switch (_shop) do
 					"SmokeShellGreen","pmc_earpiece"]
 					]};
 				};
-				
+
 	//GANGS
 	case "gangdmw": {
 					if((_shop == "gangdmw") && license_civ_gangdmw) then {_return =
@@ -479,7 +486,7 @@ switch (_shop) do
 					"ItemGPS","Rangefinder","ToolKit","FirstAidKit","ItemRadio","NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","pmc_earpiece","TFAx_NVGoggles2"]
 					]};
 				};
-	
+
 	case "gangdmw_waffen": {
 					if((_shop == "gangdmw_waffen") && license_civ_gangdmw) then {_return =
 		["DMW Waffen",
@@ -495,16 +502,16 @@ switch (_shop) do
 					"optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","RH_peq2"]
 					]};
 				};
-	
+
 	//POW MIA
-	case "gangpow": {if((_shop == "gangpow") && license_civ_gangpow) then {_return = 
+	case "gangpow": {if((_shop == "gangpow") && license_civ_gangpow) then {_return =
 		["PowMia Markt",
 					["D41_WaterBottle","D41_EnergyDrink","D41_Apfelschnaps","D41_Pfirsichschnaps","D41_Hasenfleisch","D41_BeefJerky",
-					"D41_BenzinKanister","D41_Dietrich","D41_Bolzenschneider","D41_Sprengladung","D41_Kabelbinder",		
+					"D41_BenzinKanister","D41_Dietrich","D41_Bolzenschneider","D41_Sprengladung","D41_Kabelbinder",
 					"Binocular","Rangefinder","ItemMap","ItemCompass","ItemWatch","ItemGPS","ItemRadio","ToolKit","FirstAidKit","NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","pmc_earpiece","TFAx_NVGoggles2"]
 					]};
 				};
-				
+
 	case "gangpow_waffen": {
 					if((_shop == "gangpow_waffen") && license_civ_gangpow) then {_return =
 		["PowMia Waffen",
@@ -516,7 +523,7 @@ switch (_shop) do
 					"optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","RH_peq2"]
 					]};
 				};
-				
+
 	//MASTERLISTEN Waffen
 	case "leichtepistolen": {
 					if((_shop == "leichtepistolen") && ((call life_adminlevel) > 2)) then {_return =
@@ -536,7 +543,7 @@ switch (_shop) do
 					"RH_vp70","RH_18Rnd_9x19_VP"]
 					]};
 				};
-	
+
 	case "mittlerepistolen": {
 					if((_shop == "mittlerepistolen") && ((call life_adminlevel) > 2)) then {_return =
 		["Mittlere Pistolen",
@@ -551,7 +558,7 @@ switch (_shop) do
 					"hgun_Pistol_heavy_02_F","6Rnd_45ACP_Cylinder"]
 					]};
 				};
-	
+
 	case "schwerepistolen": {
 					if((_shop == "schwerepistolen") && ((call life_adminlevel) > 2)) then {_return =
 		["Schwere Pistolen",
@@ -562,7 +569,7 @@ switch (_shop) do
 					"RH_mateba","RH_6Rnd_44_Mag"]
 					]};
 				};
-				
+
 	case "pistolenattachments": {
 					if((_shop == "pistolenattachments") && ((call life_adminlevel) > 2)) then {_return =
 		["Pistolen Attachments",
@@ -590,7 +597,7 @@ switch (_shop) do
                     "RH_matchsd"]
 					]};
 				};
-				
+
 	case "leichtemps": {
 					if((_shop == "leichtemps") && ((call life_adminlevel) > 2)) then {_return =
 		["Leichte MPs",
@@ -599,7 +606,7 @@ switch (_shop) do
 					"RH_tec9","RH_32Rnd_9x19_tec"]
 					]};
 				};
-				
+
 	case "mittleremps": {
 					if((_shop == "mittleremps") && ((call life_adminlevel) > 2)) then {_return =
 		["Mittlere MPs",
@@ -615,7 +622,7 @@ switch (_shop) do
 					"hlc_30Rnd_9x19_B_MP5"]
 					]};
 				};
-				
+
 	case "schweremps": {
 					if((_shop == "schweremps") && ((call life_adminlevel) > 2)) then {_return =
 		["Schwere MPs",
@@ -631,7 +638,7 @@ switch (_shop) do
 					"hlc_30rnd_556x45_b_HK33"]
 					]};
 				};
-				
+
 	case "mpattachments": {
 					if((_shop == "mpattachments") && ((call life_adminlevel) > 2)) then {_return =
 		["MP Attachments",
@@ -644,7 +651,7 @@ switch (_shop) do
 					"RH_muzisd"]
 					]};
 				};
-				
+
 	case "sturmleicht": {
 					if((_shop == "sturmleicht") && ((call life_adminlevel) > 2)) then {_return =
 		["Leichte Sturmgewehre",
@@ -682,7 +689,7 @@ switch (_shop) do
 					"20Rnd_556x45_UW_mag"]
 					]};
 				};
-				
+
 	case "sturmmittel": {
 					if((_shop == "sturmmittel") && ((call life_adminlevel) > 2)) then {_return =
 		["Mittelschwere Stugmgewehre",
@@ -724,7 +731,7 @@ switch (_shop) do
 					"CUP_arifle_Mk16_CQC_EGLM",
 					"CUP_arifle_Mk16_STD",
 					"CUP_arifle_Mk16_STD_FG",
-					"CUP_arifle_Mk16_SV",	
+					"CUP_arifle_Mk16_SV",
 					"CUP_20Rnd_556x45_Stanag",
 					"30Rnd_556x45_Stanag",
 					"30Rnd_556x45_Stanag_Tracer_Red",
@@ -743,7 +750,7 @@ switch (_shop) do
 					"30Rnd_65x39_caseless_mag",
 					"30Rnd_65x39_caseless_mag_Tracer"]
 					]};
-				};			
+				};
 	case "sturmschwer": {
 					if((_shop == "sturmschwer") && ((call life_adminlevel) > 2)) then {_return =
 		["Schwere Sturmgewhere",
@@ -802,8 +809,8 @@ switch (_shop) do
 					"hlc_20Rnd_762x51_T_M14",
 					"hlc_20Rnd_762x51_S_M14"]
 					]};
-				};		
-				
+				};
+
 	case "sniperleicht": {
 					if((_shop == "sniperleicht") && ((call life_adminlevel) > 2)) then {_return =
 		["Leichte Sniper",
@@ -814,12 +821,12 @@ switch (_shop) do
 					"hlc_30rnd_556x45_SOST",
 					"hlc_30rnd_556x45_EPR",
 					"RH_Mk12mod1",
-					"RH_SAMR",				
+					"RH_SAMR",
 					"CUP_srifle_LeeEnfield",
 					"CUP_10x_303_M"]
 					]};
-				};			
-				
+				};
+
 	case "snipermittel": {
 					if((_shop == "snipermittel") && ((call life_adminlevel) > 2)) then {_return =
 		["Mittelschwere Sniper",
@@ -843,8 +850,8 @@ switch (_shop) do
 					"rhs_weap_svds",
 					"rhs_10Rnd_762x54mmR_7N1"]
 					]};
-				};			
-				
+				};
+
 	case "sniperschwer": {
 					if((_shop == "sniperschwer") && ((call life_adminlevel) > 2)) then {_return =
 		["Schwere Sniper",
@@ -875,8 +882,8 @@ switch (_shop) do
 					"srifle_LRR_camo_F",
 					"7Rnd_408_Mag"]
 					]};
-				};			
-				
+				};
+
 	case "mgleicht": {
 					if((_shop == "mgleicht") && ((call life_adminlevel) > 2)) then {_return =
 		["Leichte MGs",
@@ -889,7 +896,7 @@ switch (_shop) do
 					"CUP_100Rnd_556x45_BetaCMag",
 					"CUP_100Rnd_TE1_Green_Tracer_556x45_BetaCMag"]
 					]};
-				};		
+				};
 
 	case "mgmittel": {
 					if((_shop == "mgmittel") && ((call life_adminlevel) > 2)) then {_return =
@@ -943,7 +950,7 @@ switch (_shop) do
 					"CUP_sgun_M1014",
 					"CUP_8Rnd_B_Beneli_74Slug"]
 					]};
-				};	
+				};
 	case "sonstiges": {
 					if((_shop == "sonstiges") && ((call life_adminlevel) > 2)) then {_return =
 		["Sonstiges",
@@ -958,7 +965,7 @@ switch (_shop) do
 					"DemoCharge_Remote_Mag",
 					"SatchelCharge_Remote_Mag"]
 					]};
-				};	
+				};
 
 	case "schalli": {
 					if((_shop == "schalli") && ((call life_adminlevel) > 2)) then {_return =
@@ -983,7 +990,7 @@ switch (_shop) do
 					"CUP_muzzle_mfsup_SCAR_L",
 					"CUP_muzzle_snds_SCAR_L"]
 					]};
-				};	
+				};
 
 	case "llm": {
 					if((_shop == "llm") && ((call life_adminlevel) > 2)) then {_return =
@@ -1003,7 +1010,7 @@ switch (_shop) do
 					"RH_m4covers_s",
 					"FHQ_acc_LLM01L"]
 					]};
-				};	
+				};
 
 	case "cqb": {
 					if((_shop == "cqb") && ((call life_adminlevel) > 2)) then {_return =
@@ -1045,8 +1052,8 @@ switch (_shop) do
 					"CUP_optic_CompM2_Desert",
 					"CUP_optic_CompM2_Woodland2"]
 					]};
-				};	
-				
+				};
+
 	case "mid": {
 					if((_shop == "mid") && ((call life_adminlevel) > 2)) then {_return =
 		["Mid-Range Scopes",
@@ -1077,16 +1084,16 @@ switch (_shop) do
 					"rhs_acc_1p29",
 					"RH_m3lr",
 					"CUP_optic_RCO_desert",
-					"CUP_optic_RCO",	
+					"CUP_optic_RCO",
 					"CUP_optic_ACOG"]
 					]};
-				};	
+				};
 
 	case "long": {
 					if((_shop == "long") && ((call life_adminlevel) > 2)) then {_return =
 		["Long-Range Scopes",
 					["CUP_optic_SB_11_4x20_PM",
-					"CUP_optic_SB_3_12x50_PMII",						
+					"CUP_optic_SB_3_12x50_PMII",
 					"HLC_Optic_PSO1",
 					"optic_LRPS",
 					"optic_DMS",
@@ -1109,5 +1116,5 @@ switch (_shop) do
 					"FHQ_optic_LeupoldERT"]
 					]};
 				};
-				
+
 };

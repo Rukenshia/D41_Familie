@@ -26,6 +26,7 @@ ctrlSetText[2209,format["Spieler Inventar", _shop_data select 0]];
 ctrlSetText[2210,"1"];
 ctrlSetText[2211,"1"];
 
+
 _name = "";
 {
 	if(isClass (configFile >> "CfgMagazines" >> _x))then {_name = [_x] call life_fnc_D41_GetMagName;};
@@ -56,7 +57,7 @@ _Counter = 0;
 		};
 		_Counter = _Counter + 1;
 	};
-	
+
 	if ( isClass (configFile >> "CfgWeapons" >> _x)) then
 	{
 		if(_x in _Inv2) then
@@ -70,5 +71,5 @@ _Counter = 0;
 			};
 		};
 		_Counter = _Counter + 1;
-	};	
+	};
 } foreach (_shop_data select 1);
