@@ -47,6 +47,8 @@ switch (playerSide) do
 	{
 		life_actions = life_actions + [player addAction["<t color='#ffff33'>Patient heilen</t>",life_fnc_healPlayer,"",0,false,false,"",
 		'(isPlayer cursorTarget && (damage cursorTarget) > 0.1 && player distance cursorTarget < 3.0)']];
+		life_actions = life_actions + [player addAction["<t color='#ffff33'>Selbstbehandlung</t>",{ player setDamage 0.0; titleText["Du fühlst dich wieder hervorragend.", "PLAIN"];},"",0,false,false,"",
+		'(damage player > 0.1)']];
 	};
 };
 

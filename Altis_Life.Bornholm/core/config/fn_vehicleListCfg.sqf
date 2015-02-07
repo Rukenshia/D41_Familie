@@ -272,7 +272,7 @@ switch (_shop) do
 			_return set[count _return,["D41_Heli_Transport_04_covered_F",300000]]; //Taru Personenmodul
 			//_return set[count _return,["D41_Heli_Transport_04_Fuel_F",300000]]; //Taru Benzinmodul
         };
-		if((life_D41_Karma > 5000)&& license_civ_air) then
+		if((life_D41_Karma > 5000) && license_civ_air) then
         {
 			_return set[count _return,["civ_mohawk_ion",335000]];
 			_return set[count _return,["civ_mohawk_dahoman",335000]];
@@ -310,14 +310,14 @@ switch (_shop) do
 
 	case "cop_airhq":
 	{
-		_return = ["D41_police_helicopter",28000];
+		_return = [["D41_police_helicopter",28000]];
 
 		if(__GETC__(life_coplevel) > 3 && !license_cop_gangfirma) then
 		{
 			_return set[count _return,
 			["I_Heli_light_03_unarmed_F",65500]];
 		};
-		if((__GETC__(life_coplevel) > 5) || license_cop_swat) && !license_cop_gangfirma) then
+		if(((__GETC__(life_coplevel) > 5) || license_cop_swat) && !license_cop_gangfirma) then
 		{
 			_return set[count _return,
 			["D41_RHS_UH60M",75000]];

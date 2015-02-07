@@ -87,7 +87,7 @@ switch (typeOf _vehicle) do
 
 	case "C_Van_01_box_F":
 	{
-		_lightleft lightAttachObject [_vehicle, [0.85,-0.2,1.35]];
+		_lightright lightAttachObject [_vehicle, [0.85,-0.2,1.35]];
 	};
 
 	case "Offroad_SWAT":
