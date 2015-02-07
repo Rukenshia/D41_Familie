@@ -2,7 +2,7 @@
 /*
 	File: fn_unimpound.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Yeah... Gets the vehicle from the garage.
 */

@@ -61,9 +61,12 @@ if((life_veh_shop select 0) == "med_air_hs") then
 		};
 		_vehicle allowDamage false;
 		_vehicle lock 2;
+    _hs = nearestObjects[getMarkerPos _spawnPoint,["Land_Hospital_side2_F"],75] select 0;
+    _vehicle setPosATL (_hs modelToWorld [-0.4,-4,12.65]);
+		/*_vehicle lock 2;
 		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
 		_vehicle setDir (markerDir _spawnPoint);
-		_vehicle setPos (getMarkerPos _spawnPoint);
+		_vehicle setPos (getMarkerPos _spawnPoint);*/
 		[[_vehicle,_colorIndex],"life_fnc_colorVehicle",true,false] call life_fnc_MP;
 		[_vehicle] call life_fnc_clearVehicleAmmo;
 		[[_vehicle,"vehicle_info_owners",[[getPlayerUID player,profileName]],true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
