@@ -5000,8 +5000,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={9323.29,81.1914,5455.32};
-					azimut=163.0;
+					position[]={9323.29,81.191399,5455.3198};
+					azimut=163;
 					special="NONE";
 					id=248;
 					side="GUER";
@@ -17679,8 +17679,9 @@ class Mission
 		};
 		class Item1223
 		{
-			position[]={6230.2954,1.4733955,3634.0293};
+			position[]={10242.301,108.41537,7851.835};
 			azimut=101.185;
+			offsetY=0.2;
 			id=1472;
 			side="EMPTY";
 			vehicle="Land_File_research_F";
@@ -22532,12 +22533,11 @@ class Mission
 		};
 		class Item377
 		{
-			position[]={11983.0, 19.0, 19260.0};
+			position[]={11983,19,19260};
 			name="ts_ip_marker";
 			text="TS IP: 46.20.46.230:10122";
 			type="mil_dot";
 			colorName="ColorBlue";
-			angle=0.0;
 		};
 	};
 	class Sensors
