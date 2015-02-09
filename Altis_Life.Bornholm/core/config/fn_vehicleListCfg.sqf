@@ -144,14 +144,14 @@ switch (_shop) do
 			_return set[count _return,["O_Truck_03_transport_F",135000]]; // Tempest Transport offen {7500} 100Km/h
 			_return set[count _return,["O_Truck_03_ammo_F",165000]]; // Tempest Transport Ammoboxen {9000} 100Km/h
 			_return set[count _return,["B_Truck_01_transport_F", 210000]]; // HEMTT Transport offen {11000} 80Km/h
-			//_return set[count _return,["C_Van_01_fuel_F",35000]]; //4x4 Fuel
-			//_return set[count _return,["Civ_Truck_02_fuel2_F",70000]]; //Kamaz Fuel
+			_return set[count _return,["C_Van_01_fuel_F",35000]]; //4x4 Fuel
+			_return set[count _return,["Civ_Truck_02_fuel2_F",70000]]; //Kamaz Fuel
 		};
 		if(life_D41_Karma > 5000)then
         {
 			_return set[count _return,["D41_typhoon_vdv", 230000]]; //Typhoon RHS (geschlossen) {10000} 110Km/h
 			_return set[count _return,["B_Truck_01_covered_F",340000]]; // HEMTT Transport covered {13000} 80Km/h
-			//_return set[count _return,["O_Truck_03_fuel_F",150000]]; //Tempest Fuel
+			_return set[count _return,["O_Truck_03_fuel_F",150000]]; //Tempest Fuel
 			_return set[count _return,["B_Truck_01_fuel_F",275000]]; //HEMTT Fuel
         };
     };
