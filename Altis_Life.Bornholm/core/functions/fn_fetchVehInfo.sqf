@@ -1,10 +1,10 @@
 /*
 	File: fn_fetchVehInfo.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Used in returning information about a vehicle from Config >> "CfgVehicles"
-	
+
 	Return:
 	0: classname
 	1: scope
@@ -52,7 +52,8 @@ _speed = getNumber(configFile >> "CfgVehicles" >> _class >> "maxSpeed");
 _armor = getNumber(configFile >> "CfgVehicles" >> _class >> "armor");
 _seats = getNumber(configFile >> "CfgVehicles" >> _class >> "transportSoldier");
 _hp = getNumber(configFile >> "CfgVehicles" >> _class >> "enginePower");
-_fuel = getNumber(configFile >> "CfgVehicles" >> _class >> "fuelCapacity");
+//_fuel = getNumber(configFile >> "CfgVehicles" >> _class >> "fuelCapacity");
+_fuel = [_class,_superClass] call life_fnc_getFuelRate;
 _cargo = getNumber(configFile >> "CfgVehicles" >> _class >> "maximumload");
 
 //Return

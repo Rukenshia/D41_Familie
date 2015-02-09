@@ -289,7 +289,7 @@ switch (_shop) do
 			_return set[count _return,
 			["D41_police_helicopter",28000]];
 		};
-		if(__GETC__(life_coplevel) > 4 && !license_cop_gangfirma) then
+		if(__GETC__(life_coplevel) > 3 && !license_cop_gangfirma) then
 		{
 			_return set[count _return,
 			["I_Heli_light_03_unarmed_F",18750]];

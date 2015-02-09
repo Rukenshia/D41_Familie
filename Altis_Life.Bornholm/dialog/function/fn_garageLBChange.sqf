@@ -2,7 +2,7 @@
 /*
 	File: fn_garageLBChange.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Can't be bothered to answer it.. Already deleted it by accident..
 */
@@ -31,7 +31,8 @@ _sellPrice = if(_sellPrice == -1) then {1000} else {(__GETC__(life_garage_sell) 
 	+(localize "STR_Shop_Veh_UI_MaxSpeed")+ " %5 km/h<br/>"
 	+(localize "STR_Shop_Veh_UI_HPower")+ " %6<br/>"
 	+(localize "STR_Shop_Veh_UI_PSeats")+ " %7<br/>"
-	+(localize "STR_Shop_Veh_UI_Fuel")+ " %8"
+	+(localize "STR_Shop_Veh_UI_Fuel")+ " %8l<br/>"
+	+"Verbrauch: %9l/km"
 	,
 [_retrievePrice] call life_fnc_numberText,
 [_sellPrice] call life_fnc_numberText,
@@ -40,7 +41,8 @@ _vehicleInfo select 13,
 _vehicleInfo select 8,
 _vehicleInfo select 11,
 _vehicleInfo select 10,
-_vehicleInfo select 12
+(_vehicleInfo select 12) select 0,
+(_vehicleInfo select 12) select 1
 ];
 
 ctrlShow [2803,true];

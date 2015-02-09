@@ -5,7 +5,7 @@
 	Description:
 	Does something with vehicle purchasing.
 */
-private["_mode","_spawnPoints","_className","_basePrice","_colorIndex","_spawnPoint","_vehicle","_civHeli","_blocked"];
+private["_mode","_spawnPoints","_className","_basePrice","_colorIndex","_spawnPoint","_vehicle","_civHeli","_blocked", "_fuelData"];
 _mode = _this select 0;
 if((lbCurSel 2302) == -1) exitWith {hint localize "STR_Shop_Veh_DidntPick"};
 _className = lbData[2302,(lbCurSel 2302)];
@@ -52,49 +52,53 @@ hint format[localize "STR_Shop_Veh_Bought",getText(configFile >> "CfgVehicles" >
 
 //Spawn the vehicle and prep it.
 if((life_veh_shop select 0) == "med_air_hs") then
-	{
-		_vehicle = createVehicle [_className,[0,0,999],[], 0, "NONE"];
-		waitUntil {!isNil "_vehicle"}; //Wait?
-		if (_className == "D41_RHS_UH60M") then {
-			_vehicle setVehicleAmmo 0;
-			_vehicle setVehicleAmmoDef 0;
-		};
-		_vehicle allowDamage false;
-		_vehicle lock 2;
-    _hs = nearestObjects[getMarkerPos _spawnPoint,["Land_Hospital_side2_F"],75] select 0;
-    _vehicle setPosATL (_hs modelToWorld [-0.4,-4,12.65]);
-		/*_vehicle lock 2;
-		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
-		_vehicle setDir (markerDir _spawnPoint);
-		_vehicle setPos (getMarkerPos _spawnPoint);*/
-		[[_vehicle,_colorIndex],"life_fnc_colorVehicle",true,false] call life_fnc_MP;
-		[_vehicle] call life_fnc_clearVehicleAmmo;
-		[[_vehicle,"vehicle_info_owners",[[getPlayerUID player,profileName]],true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
-		_vehicle disableTIEquipment true; //No Thermals.. They're cheap but addictive.
-	}
-	else
-	{
-		_vehicle = createVehicle [_className, (getMarkerPos _spawnPoint), [], 0, "NONE"];
-		waitUntil {!isNil "_vehicle"}; //Wait?
-		if (_className == "D41_RHS_UH60M") then {
-			_vehicle setVehicleAmmo 0;
-			_vehicle setVehicleAmmoDef 0;
-		};
-		_vehicle allowDamage false; //Temp disable damage handling..
-		_vehicle lock 2;
-		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
-		_vehicle setDir (markerDir _spawnPoint);
-		_vehicle setPos (getMarkerPos _spawnPoint);
-		[[_vehicle,_colorIndex],"life_fnc_colorVehicle",true,false] call life_fnc_MP;
-		[_vehicle] call life_fnc_clearVehicleAmmo;
-		[[_vehicle,"vehicle_info_owners",[[getPlayerUID player,profileName]],true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
-		[[_vehicle,"TPLlights",false,true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
-		[[_vehicle,"TSLlights",false,true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
-		_vehicle disableTIEquipment true; //No Thermals.. They're cheap but addictive.
+{
+	_vehicle = createVehicle [_className,[0,0,999],[], 0, "NONE"];
+	waitUntil {!isNil "_vehicle"}; //Wait?
+	if (_className == "D41_RHS_UH60M") then {
+		_vehicle setVehicleAmmo 0;
+		_vehicle setVehicleAmmoDef 0;
 	};
+	_vehicle allowDamage false;
+	_vehicle lock 2;
+  _hs = nearestObjects[getMarkerPos _spawnPoint,["Land_Hospital_side2_F"],75] select 0;
+  _vehicle setPosATL (_hs modelToWorld [-0.4,-4,12.65]);
+	/*_vehicle lock 2;
+	_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
+	_vehicle setDir (markerDir _spawnPoint);
+	_vehicle setPos (getMarkerPos _spawnPoint);*/
+	[[_vehicle,_colorIndex],"life_fnc_colorVehicle",true,false] call life_fnc_MP;
+	[_vehicle] call life_fnc_clearVehicleAmmo;
+	[[_vehicle,"vehicle_info_owners",[[getPlayerUID player,profileName]],true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
+	_vehicle disableTIEquipment true; //No Thermals.. They're cheap but addictive.
+}
+else
+{
+	_vehicle = createVehicle [_className, (getMarkerPos _spawnPoint), [], 0, "NONE"];
+	waitUntil {!isNil "_vehicle"}; //Wait?
+	if (_className == "D41_RHS_UH60M") then {
+		_vehicle setVehicleAmmo 0;
+		_vehicle setVehicleAmmoDef 0;
+	};
+	_vehicle allowDamage false; //Temp disable damage handling..
+	_vehicle lock 2;
+	_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
+	_vehicle setDir (markerDir _spawnPoint);
+	_vehicle setPos (getMarkerPos _spawnPoint);
+	[[_vehicle,_colorIndex],"life_fnc_colorVehicle",true,false] call life_fnc_MP;
+	[_vehicle] call life_fnc_clearVehicleAmmo;
+	[[_vehicle,"vehicle_info_owners",[[getPlayerUID player,profileName]],true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
+	[[_vehicle,"TPLlights",false,true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
+	[[_vehicle,"TSLlights",false,true],"TON_fnc_setObjVar",false,false] call life_fnc_MP;
+	_vehicle disableTIEquipment true; //No Thermals.. They're cheap but addictive.
+};
 
 //D41 Sitzplatzabfrage
 _civHeli = ["B_Heli_Light_01_F","civ_md500_blueline","civ_md500_shadow","civ_md500_whitered","civ_md500_greywatcher","civ_md500_speedy","civ_md500_sunset","civ_md500_wasp","civ_md500_wave"];
+
+// Start loop for our own vehicle consumption
+[_vehicle] spawn life_fnc_fuelConsumption;
+
 
 //Side Specific actions.
 switch(playerSide) do

@@ -95,6 +95,8 @@ _vehicle setVariable["TSLlights",FALSE,TRUE];
 _vehicle setVariable["dbInfo",[(_vInfo select 4),_vInfo select 7]];
 [_vehicle] call life_fnc_clearVehicleAmmo;
 
+[[_vehicle], "life_fnc_fuelConsumption",_unit,false] call life_fnc_MP;
+
 //D41 Liste für Sitzplatzabfrage
 _civHeli = ["B_Heli_Light_01_F","civ_md500_blueline","civ_md500_shadow","civ_md500_whitered","civ_md500_greywatcher","civ_md500_speedy","civ_md500_sunset","civ_md500_wasp","civ_md500_wave"];
 
