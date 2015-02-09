@@ -152,7 +152,7 @@ switch (_shop) do
 			_return set[count _return,["D41_typhoon_vdv", 230000]]; //Typhoon RHS (geschlossen) {10000} 110Km/h
 			_return set[count _return,["B_Truck_01_covered_F",340000]]; // HEMTT Transport covered {13000} 80Km/h
 			//_return set[count _return,["O_Truck_03_fuel_F",150000]]; //Tempest Fuel
-			//_return set[count _return,["B_Truck_01_fuel_F",275000]]; //HEMTT Fuel
+			_return set[count _return,["B_Truck_01_fuel_F",275000]]; //HEMTT Fuel
         };
     };
 

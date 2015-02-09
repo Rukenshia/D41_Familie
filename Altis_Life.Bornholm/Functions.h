@@ -151,6 +151,7 @@ class Life_Client_Core
 
 		// Familie
 		class showTitleText {};
+		class showHint {};
 	};
 
 	class Housing
