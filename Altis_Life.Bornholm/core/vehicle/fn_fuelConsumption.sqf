@@ -99,7 +99,7 @@ while {alive _vehicle} do {
       _vehicle setFuel (((_fuel * _capacity) - ((_distanceTravelled / 1000.0) * _consumption * _modifier)) / _capacity);
     };
 
-    hint parseText format["Set Fuel<br /><br />Capacity: %1l<br />Speed: %2<br />Distance: %3<br />Consumption: %4l/km<br/>Modifier: %5<br /><br /><t color='#00ff00'>New Fuel: %6l</t>", _capacity, speed _vehicle, _distanceTravelled, _consumption, _modifier, (fuel _vehicle) * _capacity];
+    //hint parseText format["Set Fuel<br /><br />Capacity: %1l<br />Speed: %2<br />Distance: %3<br />Consumption: %4l/km<br/>Modifier: %5<br /><br /><t color='#00ff00'>New Fuel: %6l</t>", _capacity, speed _vehicle, _distanceTravelled, _consumption, _modifier, (fuel _vehicle) * _capacity];
 
     _lastPos = position _vehicle;
     _lastFuel = fuel _vehicle;
