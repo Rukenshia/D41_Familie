@@ -70,6 +70,13 @@ switch (_code) do
 					[] spawn life_fnc_medicGroupMarkers;
 				}
 			};
+			case civilian: {
+				if(!visibleMap) then {
+					if (group player != grpNull) then {
+						[] spawn life_fnc_gangMarkers;
+					};
+				};
+			};
 		};
 	};
 
