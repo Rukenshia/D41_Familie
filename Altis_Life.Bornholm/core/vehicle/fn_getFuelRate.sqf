@@ -6,33 +6,10 @@
   Returns the fuel rates of a vehicle (capacity(liter), liter per km);
 */
 
-private["_type", "_kind"];
-
+private["_type"];
 _type = _this select 0;
-_kind = _this select 1;
 
-_return = [62.0, 2.84]; // 34l capacity, 2.84 liter per km
-
-// Default Capacities
-if (_kind != "Air") then {
-  if (_type in ["C_Van_01_box_F","D41_gaz66_repair_msv","D41_gaz66_ap2_msv","D41_gaz66_r142_msv","D41_gaz66o_msv","D41_gaz66_msv", "C_Van_01_fuel_F","C_Van_01_transport_F", "D41_uaz_open_MSV_01","D41_UAZ_MSV_01"]) then {
-    _return = [180.0, 9.0];
-  };
-  if (_type in ["B_Truck_01_mover_F","D41_Ikarus_Civ_02","D41_Ikarus_Civ_01","Civ_Truck_02_transport_F","Civ_Truck_02_transport_plane_F",
-    "B_Truck_01_transport_F","B_Truck_01_covered_F","O_Truck_03_transport_F","O_Truck_03_ammo_F","D41_typhoon_vdv","Civ_Truck_02_fuel2_F",
-    "B_Truck_01_fuel_F","O_Truck_03_fuel_F","O_Truck_03_covered_F", "D41_Ural_MSV_01", "D41_Ural_Open_MSV_01"]) then {
-    _return = [380.0, 18.1];
-  };
-  if (_type in ["civ_md500_blueline","civ_md500_shadow","civ_md500_whitered","civ_md500_greywatcher","civ_md500_speedy","civ_md500_sunset","civ_md500_wasp","civ_md500_wave",
-    "D41_medic_helicopter","O_Heli_Light_02_unarmed_F","civ_ka60_whiteblue","D41_ka60_medic","civ_mohawk_ion","civ_mohawk_dahoman","D41_GNT_C185",
-    "bwi_a3_t6a_8","bwi_a3_t6a_1","bwi_a3_t6a_3","bwi_a3_t6a_7","D41_RHS_UH60M_MEV","D41_Heli_Transport_04_bench_F","D41_Heli_Transport_04_F","D41_Heli_Transport_04_covered_F",
-    "D41_Heli_Transport_04_Fuel_F","D41_Heli_Transport_03_unarmed_F","D41_police_helicopter","I_Heli_light_03_unarmed_F","D41_RHS_UH60M","civ_md500_urban"]) then {
-    _return = [460.0,11.5];
-  };
-}
-else {
-  _return = [460.0,11.5];
-};
+_return = [62.0, 2.84]; // 62l capacity, 2.84 liter per km
 
 switch (_type) do {
   // Normal Cars
@@ -64,9 +41,63 @@ switch (_type) do {
   case "D41_tigr_msv": { _return = [150.0, 6.81]; }; // GAZ TIGR
 
   // Light Trucks
-
+  case "C_Van_01_box_F";
+  case "D41_gaz66_repair_msv";
+  case "D41_gaz66_ap2_msv";
+  case "D41_gaz66_r142_msv";
+  case "D41_gaz66o_msv";
+  case "D41_gaz66_msv";
+  case "C_Van_01_fuel_F";
+  case "C_Van_01_transport_F";
+  case "D41_uaz_open_MSV_01";
+  case "D41_UAZ_MSV_01": { _return = [180.0, 9.0]; };
 
   // Heavy Trucks
+  case "D41_Ikarus_Civ_02";
+  case "D41_Ikarus_Civ_01";
+  case "Civ_Truck_02_transport_F";
+  case "Civ_Truck_02_transport_plane_F";
+  case "B_Truck_01_transport_F";
+  case "B_Truck_01_covered_F";
+  case "O_Truck_03_transport_F";
+  case "D41_typhoon_vdv";
+  case "Civ_Truck_02_fuel2_F";
+  case "O_Truck_03_fuel_F";
+  case "O_Truck_03_covered_F";
+  case "D41_Ural_MSV_01";
+  case "D41_Ural_Open_MSV_01": { _return = [380.0, 16.1]; };
   case "B_Truck_01_mover_F": { _return = [380.0, 15.3]; };
+
+  // Air Vehicles
+  case "civ_md500_blueline";
+  case "civ_md500_shadow";
+  case "civ_md500_whitered";
+  case "civ_md500_greywatcher";
+  case "civ_md500_speedy";
+  case "civ_md500_sunset";
+  case "civ_md500_wasp";
+  case "civ_md500_wave";
+  case "D41_medic_helicopter";
+  case "O_Heli_Light_02_unarmed_F";
+  case "civ_ka60_whiteblue";
+  case "D41_ka60_medic";
+  case "civ_mohawk_ion";
+  case "civ_mohawk_dahoman";
+  case "D41_GNT_C185";
+  case "bwi_a3_t6a_8";
+  case "bwi_a3_t6a_1";
+  case "bwi_a3_t6a_3";
+  case "bwi_a3_t6a_7";
+  case "D41_RHS_UH60M_MEV";
+  case "D41_Heli_Transport_04_bench_F";
+  case "D41_Heli_Transport_04_F";
+  case "D41_Heli_Transport_04_covered_F";
+  case "D41_Heli_Transport_04_Fuel_F";
+  case "D41_Heli_Transport_03_unarmed_F";
+  case "D41_police_helicopter";
+  case "I_Heli_light_03_unarmed_F";
+  case "D41_RHS_UH60M";
+  case "civ_md500_urban": { _return = [460.0, 11.5]; };
 };
+
 _return;

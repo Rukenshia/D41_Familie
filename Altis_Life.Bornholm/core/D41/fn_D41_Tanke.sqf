@@ -1,7 +1,7 @@
 ﻿/*
 	File: fn_D41_Tanke.sqf
 	Author: Distrikt41 - Dscha
-	
+
 	Description:
 	Jo ähm, befüllen der Karre halt.
 */
@@ -24,21 +24,25 @@ if(count (_Karre) > 0) then
 	_fuel = getNumber(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "fuelCapacity");
 	if(_vehicle isKindOf "Car") then {_fuelMod = ((1/(_fuel / 100))/1000);};
 	if(_vehicle isKindOf "Air") then {_fuelMod = ((1/(_fuel / 100))/5);};
-	
+
 	disableSerialization;
 	5 cutRsc ["life_progress","PLAIN"];
 	_ui = uiNameSpace getVariable "life_progress";
 	_progress = _ui displayCtrl 38201;
 	_pgText = _ui displayCtrl 38202;
 	_progress progressSetPosition (Fuel _vehicle);
-	
 	if(_action) then
 	{
 		while{true}do
 		{
 			if((D41_atmGeld - D41_BenzinPreis) < 0) exitWith {D41_Tankt = false; titleText[format["Nicht genügend Geld auf der Bank. Kontostand: %1",D41_atmGeld],"PLAIN"]; 5 cutText ["","PLAIN"];};
 			D41_atmGeld = D41_atmGeld - D41_BenzinPreis;
-			_Tankstand = Fuel _vehicle;
+			_Tankstand = _vehicle getVariable "scriptFuel";
+			if (_Tankstand > 1.0) then { // Let's fix it
+				_Tankstand = 1.0;
+			};
+			if (isNil {_Tankstand}) exitWith {D41_Tankt = false; hint "Melde dich bei einem Admin: INV_STATION_V_FUEL"; };
+			_vehicle setVariable ["scriptFuel", (_Tankstand + _fuelMod), true];
 			_vehicle setFuel (_Tankstand + _fuelMod);
 			_progress progressSetPosition _Tankstand;
 			_pgText ctrlSetText format["%3 %4 (%1%2)...",round(_Tankstand * 100),"%","Betanke", _name];

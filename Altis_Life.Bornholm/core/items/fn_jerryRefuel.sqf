@@ -1,7 +1,7 @@
 /*
 	File: fn_jerryRefuel.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Refuels the vehicle if the player has a fuel can.
 */
@@ -12,6 +12,7 @@ life_interrupted = false;
 if(isNull _vehicle) exitWith {hint localize "STR_ISTR_Jerry_NotLooking"};
 if(!(_vehicle isKindOF "LandVehicle") && !(_vehicle isKindOf "Air") && !(_vehicle isKindOf "Ship")) exitWith {};
 if(player distance _vehicle > 7.5) exitWith {hint localize "STR_ISTR_Jerry_NotNear"};
+if(isNil {_vehicle getVariable "scriptFuel"}) exitWith { hint "Melde dich bei einem Admin: INV_VEH_FUEL"; };
 
 life_action_inUse = true;
 _displayName = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
@@ -34,8 +35,8 @@ while{true} do
 	{
 		[[player,"AinvPknlMstpSnonWnonDnon_medic_1"],"life_fnc_animSync",true,false] call life_fnc_MP;
 		player playMove "AinvPknlMstpSnonWnonDnon_medic_1";
-	};	
-	
+	};
+
 	sleep 0.2;
 	if(isNull _ui) then {
 		5 cutRsc ["life_progress","PLAIN"];
@@ -60,44 +61,47 @@ if(life_interrupted) exitWith {life_interrupted = false; titleText[localize "STR
 switch (true) do
 {
 	case (!("D41_BenzinKanister" in (magazines player))): {hint "Bescheissen is nich! Machs nochma!"};
-	
+
 	case (_vehicle isKindOF "LandVehicle"):
 	{
 		if(!local _vehicle) then
 		{
-			[[[_vehicle],{_this select 0 setFuel ((Fuel (_this select 0)) + 0.5);}],"BIS_fnc_spawn",_vehicle,false] call life_fnc_MP;
+			[[[_vehicle],{_this select 0 setFuel (((_this select 0) getVariable "scriptFuel") + 0.5);}],"BIS_fnc_spawn",_vehicle,false] call life_fnc_MP;
 		}
 			else
 		{
-			_vehicle setFuel ((Fuel _vehicle) + 0.5);
+			_vehicle setFuel ((_vehicle getVariable "scriptFuel") + 0.5);
+			_vehicle setVariable ["scriptFuel", fuel _vehicle, true];
 		};
 		player removeMagazine "D41_BenzinKanister";
 		player addMagazine "D41_BenzinKanisterLeer";
 	};
-	
+
 	case (_vehicle isKindOf "Air"):
 	{
 		if(!local _vehicle) then
 		{
-			[[[_vehicle],{_this select 0 setFuel ((Fuel (_this select 0)) + 0.2);}],"BIS_fnc_spawn",_vehicle,false] call life_fnc_MP;
+			[[[_vehicle],{_this select 0 setFuel (((_this select 0) getVariable "scriptFuel") + 0.2);}],"BIS_fnc_spawn",_vehicle,false] call life_fnc_MP;
 		}
 			else
 		{
-			_vehicle setFuel ((Fuel _vehicle) + 0.2);
+			_vehicle setFuel ((_vehicle getVariable "scriptFuel") + 0.2);
+			_vehicle setVariable ["scriptFuel", fuel _vehicle, true];
 		};
 		player removeMagazine "D41_BenzinKanister";
 		player addMagazine "D41_BenzinKanisterLeer";
 	};
-	
+
 	case (_vehicle isKindOf "Ship"):
 	{
 		if(!local _vehicle) then
 		{
-			[[[_vehicle],{_this select 0 setFuel ((Fuel (_this select 0)) + 0.35);}],"BIS_fnc_spawn",_vehicle,false] call life_fnc_MP;
+			[[[_vehicle],{_this select 0 setFuel (((_this select 0) getVariable "scriptFuel") + 0.35);}],"BIS_fnc_spawn",_vehicle,false] call life_fnc_MP;
 		}
 			else
 		{
-			_vehicle setFuel ((Fuel _vehicle) + 0.35);
+			_vehicle setFuel ((_vehicle getVariable "scriptFuel") + 0.35);
+			_vehicle setVariable ["scriptFuel", fuel _vehicle, true];
 		};
 		player removeMagazine "D41_BenzinKanister";
 		player addMagazine "D41_BenzinKanisterLeer";

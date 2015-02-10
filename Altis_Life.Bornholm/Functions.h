@@ -353,6 +353,7 @@ class Life_Client_Core
 		class addVehicle2Chain {};
 		class getFuelRate {};
 		class fuelConsumption {};
+		class handleFuelConsumption {};
 	};
 
 	class Cop

@@ -1,5 +1,5 @@
 class DefaultEventhandlers;
-class CfgPatches 
+class CfgPatches
 {
 	class life_server
 	{
@@ -7,7 +7,7 @@ class CfgPatches
 		weapons[] = {};
 		requiredAddons[] = {"A3_Data_F","A3_Soft_F","A3_Soft_F_Offroad_01","A3_Characters_F"};
 		fileName = "life_server.pbo";
-		author[]= {"TAW_Tonic"}; 
+		author[]= {"TAW_Tonic"};
 	};
 };
 
@@ -32,7 +32,7 @@ class CfgFunctions
 			class missionTimeLeft{};
 		};
 	};
-	
+
 	class MySQL_Database
 	{
 		tag = "DB";
@@ -52,7 +52,7 @@ class CfgFunctions
 			class updatePartial {};
 		};
 	};
-	
+
 	class Life_System
 	{
 		tag = "life";
@@ -67,7 +67,7 @@ class CfgFunctions
 			class wantedCrimes {};
 			class wantedProfUpdate {};
 		};
-		
+
 		class Jail_Sys
 		{
 			file = "\life_server\Functions\Jail";
@@ -75,13 +75,13 @@ class CfgFunctions
 			class jailTimer{};
 			class jailPlayer{};
 		};
-		
+
 		class Client_Code
 		{
 			file = "\life_server\Functions\Client";
 		};
 	};
-	
+
 	class TON_System
 	{
 		tag = "TON";
@@ -105,8 +105,10 @@ class CfgFunctions
 			class cleanupRequest {};
 			class setObjVar {};
 			class keyManagement {};
+
+			class fuelConsumption {};
 		};
-		
+
 		class Housing
 		{
 			file = "\life_server\Functions\Housing";
@@ -125,9 +127,9 @@ class CfgFunctions
  			class removeGang {};
  			class updateGang {};
  		};
-			
+
 	};
-	
+
 	class D41_System
 	{
 		tag = "D41";
@@ -160,7 +162,7 @@ class CfgVehicles
 	{
 		class EventHandlers;
 	};
-	
+
 	class C_man_1 : Civilian_F
 	{
 		class EventHandlers: EventHandlers

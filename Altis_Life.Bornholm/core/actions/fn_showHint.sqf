@@ -6,6 +6,6 @@
   Displays a hint
 */
 private ["_message"];
-_message = [_this,0,"Invalid Message (Report to Admin)",[""]] call BIS_fnc_param;
+_message = parseText (_this select 0);
 
 hint _message;
