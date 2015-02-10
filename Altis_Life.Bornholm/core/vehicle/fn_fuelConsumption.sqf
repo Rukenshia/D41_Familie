@@ -6,7 +6,7 @@
   Handles fuel consumption of a vehicle
 */
 
-private ["_vehicle", "_kind", "_maxSpeed", "_capacity", "_fuelData", "_consumption", "_getSpeedModifier", "_lastPos", "_distanceTravelled", "_fuel", "_lastFuel"];
+private ["_vehicle", "_kind", "_maxSpeed", "_capacity", "_fuelData", "_consumption", "_getSpeedModifier", "_lastPos", "_distanceTravelled", "_fuel"];
 
 _vehicle = _this select 0;
 _maxSpeed = getNumber(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "maxSpeed");
@@ -63,7 +63,6 @@ _getSpeedModifier = {
 };
 
 _lastPos = [-4200.42];
-_lastFuel = 1;
 _distanceTravelled = 0.0;
 while {alive _vehicle} do {
   if (isEngineOn _vehicle) then {

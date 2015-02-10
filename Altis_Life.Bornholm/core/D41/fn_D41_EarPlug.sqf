@@ -12,7 +12,7 @@ if (D41_EarPlugInUse) then {
   titleText ["Ohrstöpsel herausgenommen.", "PLAIN"];
 }
 else {
-  1 fadeSound 0.2;
+  1 fadeSound 0.1;
   D41_EarPlugInUse = true;
   titleText ["Ohrstöpsel eingesteckt.", "PLAIN"];
 };
