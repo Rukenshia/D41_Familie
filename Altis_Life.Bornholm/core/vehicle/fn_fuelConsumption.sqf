@@ -75,7 +75,7 @@ while {alive _vehicle} do {
       _distanceTravelled = _vehicle distance _lastPos;
     };
 
-    _fuel = _lastFuel;
+    _fuel = fuel _vehicle;
 
     if (_fuel < 0.15) then {
       _modifier = _modifier - 0.1;
@@ -102,7 +102,6 @@ while {alive _vehicle} do {
     //hint parseText format["Set Fuel<br /><br />Capacity: %1l<br />Speed: %2<br />Distance: %3<br />Consumption: %4l/km<br/>Modifier: %5<br /><br /><t color='#00ff00'>New Fuel: %6l</t>", _capacity, speed _vehicle, _distanceTravelled, _consumption, _modifier, (fuel _vehicle) * _capacity];
 
     _lastPos = position _vehicle;
-    _lastFuel = fuel _vehicle;
     sleep 2;
   }
   else {
