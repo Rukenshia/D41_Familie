@@ -42,8 +42,8 @@ if(count (_Karre) > 0) then
 				_Tankstand = 1.0;
 			};
 			if (isNil {_Tankstand}) exitWith {D41_Tankt = false; hint "Melde dich bei einem Admin: INV_STATION_V_FUEL"; };
-			_vehicle setVariable ["scriptFuel", (_Tankstand + _fuelMod), true];
 			_vehicle setFuel (_Tankstand + _fuelMod);
+			_vehicle setVariable ["scriptFuel", fuel _vehicle, true];
 			_progress progressSetPosition _Tankstand;
 			_pgText ctrlSetText format["%3 %4 (%1%2)...",round(_Tankstand * 100),"%","Betanke", _name];
 			D41_TankeVebraucht = D41_TankeVebraucht + 1;
