@@ -61,7 +61,8 @@ switch (_vehicle) do
 		[
 			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_co.paa","civ"],
 			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_03_co.paa","civ"],
-			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_04_co.paa","civ"]
+			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_04_co.paa","civ"],
+			["textures\suv_taxi.paa","civ"]
 		];
 	};
 
@@ -71,7 +72,8 @@ switch (_vehicle) do
 		[
 			["\a3\soft_f_gamma\Van_01\Data\van_01_ext_co.paa","civ"],
 			["\a3\soft_f_gamma\Van_01\Data\van_01_ext_red_co.paa","civ"],
-			["textures\medic_rtw_back.paa", "med", "textures\medic_rtw_kab.paa"]
+			["textures\medic_rtw_back.paa", "med", "textures\medic_rtw_kab.paa"],
+			["textures\police_van_kab.paa", "cop", "textures\police_van_back.paa"]
 		];
 	};
 
@@ -152,7 +154,18 @@ switch (_vehicle) do
 	{
 		_ret =
 		[
-			["textures\police_offroad.paa","cop"]
+			["textures\police_offroad.paa","cop"],
+			["textures\police_offroad_zoll.paa","cop"]
+		]
+	};
+
+	case "BMW_X6M_Pol":
+	{
+		_ret =
+		[
+			["textures\police_suv.paa","cop"],
+			["textures\police_suv_highway.paa","cop"],
+			["textures\police_suv_zoll.paa","cop"]
 		]
 	};
 
@@ -162,6 +175,14 @@ switch (_vehicle) do
 		[
 			["textures\medic_hellcat.paa", "med"],
 			["textures\police_hellcat.paa", "cop"]
+		]
+	};
+
+	case "D41_police_helicopter":
+	{
+		_ret =
+		[
+			["textures\police_hummingbird.paa", "cop"]
 		]
 	};
 };

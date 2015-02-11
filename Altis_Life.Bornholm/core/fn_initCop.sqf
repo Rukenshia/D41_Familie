@@ -2,7 +2,7 @@
 /*
 	File: fn_initCop.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Cop Initialization file.
 */
@@ -21,7 +21,7 @@ if((str(player) in ["cop_1","cop_2","cop_3","cop_4","cop_5","cop_6","cop_7","cop
 		["NotWhitelisted",false,true] call BIS_fnc_endMission;
 		sleep 35;
 	};
-	switch (__GETC__(life_coplevel)) do 
+	switch (__GETC__(life_coplevel)) do
 			{
 				case 1: { life_paycheck = (1500)}; //Cadet
 				case 2: { life_paycheck = (1800)}; //Officer
@@ -40,5 +40,6 @@ if((str(player) in ["cop_1","cop_2","cop_3","cop_4","cop_5","cop_6","cop_7","cop
 
 player setVariable["rank",(__GETC__(life_coplevel)),true];
 [] call life_fnc_spawnMenu;
+[] call life_fnc_updateCopUniform;
 waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
 waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.

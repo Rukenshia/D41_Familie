@@ -2,7 +2,7 @@
 	File: fn_copLoadout.sqf
 	Author: Bryan "Tonic" Boardwine
 	Edited: Itsyuka
-	
+
 	Description:
 	Loads the cops out with the default gear.
 */
@@ -33,3 +33,4 @@ player addItem "ItemRadio";
 player assignItem "ItemRadio";
 
 [] call life_fnc_saveGear;
+[] call life_fnc_updateCopUniform;

@@ -1,7 +1,7 @@
 /*
 	File: fn_copDefault.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Default cop configuration.
 */
@@ -35,3 +35,4 @@ player addItem "ItemCompass";
 player assignItem "ItemCompass";
 
 [] call life_fnc_saveGear;
+[] call life_fnc_updateCopUniform;

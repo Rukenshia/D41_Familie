@@ -201,8 +201,12 @@ switch (_shop) do
 			["Offroad_Pol",3000]];
 			_return set[count _return,
 			["BMW_X6M_Pol",6000]];
+			//_return set[count _return,
+			//["O_Truck_03_covered_F",20000]];
+		};
+		if(__GETC__(life_copLevel) > 2) then {
 			_return set[count _return,
-			["O_Truck_03_covered_F",20000]];
+			["C_Van_01_box_F", 5000]];
 		};
 		if(__GETC__(life_coplevel) > 3) then
 		{

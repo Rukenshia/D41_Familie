@@ -1,7 +1,7 @@
 /*
 	File: fn_loadGear.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Used for loading cop saved gear loadout.
 */
@@ -39,7 +39,10 @@ removeHeadGear player;
 } foreach (assignedItems player);
 
 //Add the gear
-if(_uniform != "") then {_handle = [_uniform,true,false,false,false] spawn life_fnc_handleItem; waitUntil {scriptDone _handle};};
+if(_uniform != "") then {
+	_handle = [_uniform,true,false,false,false] spawn life_fnc_handleItem;
+	waitUntil {scriptDone _handle};
+};
 if(_vest != "") then {_handle = [_vest,true,false,false,false] spawn life_fnc_handleItem; waitUntil {scriptDone _handle};};
 if(_backpack != "") then {_handle = [_backpack,true,false,false,false] spawn life_fnc_handleItem; waitUntil {scriptDone _handle};};
 {
@@ -57,7 +60,7 @@ if(_handgun != "") then {[_handgun,true,false,false,false] spawn life_fnc_handle
 {[_x,true,true,false,false] call life_fnc_handleItem;} foreach (_bitems);
 {[_x,true,false,true,false] call life_fnc_handleItem;} foreach (_primitems);
 {[_x,true,false,true,false] call life_fnc_handleItem;} foreach (_secitems);
-{[_x,true,false,true,false] call life_fnc_handleItem;} foreach (_handgunitems);  
+{[_x,true,false,true,false] call life_fnc_handleItem;} foreach (_handgunitems);
 
 if(primaryWeapon player != "") then
 {

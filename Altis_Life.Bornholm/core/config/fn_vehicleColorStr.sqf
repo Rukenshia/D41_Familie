@@ -61,6 +61,7 @@ switch (_vehicle) do
 			case 0: {_color = "Dark Red";};
 			case 1: {_color = "Silver";};
 			case 2: {_color = "Orange";};
+			case 6: {_color = "Taxi";};
 		};
 	};
 
@@ -70,7 +71,8 @@ switch (_vehicle) do
 		{
 			case 0: {_color = "White";};
 			case 1: {_color = "Red";};
-			case 2: {_color = "Notarzt"};
+			case 2: {_color = "Notarzt";};
+			case 3: {_color = "Polizei Rüstfahrzeug";};
 		};
 	};
 
@@ -203,7 +205,18 @@ switch (_vehicle) do
 		switch (_index) do
 		{
 			case 0: {_color = "Polizei";};
+			case 1: {_color = "Polizei (Zoll)";};
 		}
+	};
+
+	case "BMW_X6M_Pol":
+	{
+		switch (_index) do
+		{
+			case 0: {_color = "Polizei";};
+			case 1: {_color = "Autobahn-Polizei";};
+			case 2: {_color = "Polizei (Zoll)";};
+		};
 	};
 
 
@@ -213,6 +226,14 @@ switch (_vehicle) do
 		{
 			case 0: {_color = "Notarzt";};
 			case 1: {_color = "Polizei";};
+		};
+	};
+
+	case "D41_police_helicopter":
+	{
+		switch (_index) do
+		{
+			case 0: {_color = "Polizei";};
 		};
 	};
 };

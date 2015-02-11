@@ -2,7 +2,7 @@
 /*
 	File: fn_clothing_cop.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Master config file for Cop clothing store.
 */
@@ -22,7 +22,7 @@ switch (_filter) do
 		_ret set[count _ret,["U_O_Wetsuit",nil,1000]];
 		if(!license_cop_gangfirma && __GETC__(life_coplevel) > 0) then
 		{
-			_ret set[count _ret,["D41_police_man_uniform",nil,300]];
+			_ret set[count _ret,["D41_police_man_uniform","Polizeiuniform (Grün)",300]];
 		};
 		if(!license_cop_gangfirma && __GETC__(life_coplevel) > 5) then
 		{
@@ -43,7 +43,7 @@ switch (_filter) do
 			_ret set[count _ret,["D41_pilot_uniform","Pilotenuniform",1000]];
 		};
 	};
-	
+
 	//Hats
 	case 1:
 	{
@@ -52,7 +52,7 @@ switch (_filter) do
 		{
 			_ret set[count _ret,["H_Beret_blk_POLICE",nil,100]];
 			_ret set[count _ret,["LOP_H_PASGTHelmet_BLU","Schutzhelm",1000]];
-		};		
+		};
 		if(!license_cop_gangfirma && __GETC__(life_coplevel) > 4) then
 		{
 			_ret set[count _ret,["H_Beret_02",nil,200]];
@@ -84,7 +84,7 @@ switch (_filter) do
 			_ret set[count _ret,["H_PilotHelmetHeli_B","Pilotenhelm 3",1000]];
 		};
 	};
-	
+
 	//Glasses
 	case 2:
 	{
@@ -103,7 +103,7 @@ switch (_filter) do
 			_ret set[count _ret,["G_Balaclava_lowprofile",nil,200]];
 		};
 	};
-	
+
 	//Vest
 	case 3:
 	{
@@ -130,7 +130,7 @@ switch (_filter) do
 		};
 		_ret set[count _ret,["V_RebreatherIA",nil,5000]];
 	};
-	
+
 	//Backpacks
 	case 4:
 	{

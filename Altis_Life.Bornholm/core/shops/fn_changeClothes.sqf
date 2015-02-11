@@ -1,7 +1,7 @@
 /*
 	File: fn_changeClothes.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Used in the clothing store to show a 'preview' of the piece of clothing.
 */
@@ -21,6 +21,7 @@ life_clothing_purchase set[life_clothing_filter,(_control lbValue _selection)];
 _data = _control lbData _selection;
 
 [_data,true,nil,nil,nil,nil,nil,true] call life_fnc_handleItem;
+[] call life_fnc_updateCopUniform;
 life_cMenu_lock = false;
 _price ctrlSetStructuredText parseText format [(localize "STR_GNOTF_Price")+ " <t color='#8cff9b'>$%1</t>",[(_control lbValue _selection)] call life_fnc_numberText];
 

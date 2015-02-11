@@ -1,7 +1,7 @@
 /*
 	File: fn_clothingMenu.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Opens and initializes the clothing store menu.
 	Started clean, finished messy.
@@ -76,6 +76,9 @@ if(isNil "life_clothesPurchased") exitWith
 {
 	life_clothing_purchase = [-1,-1,-1,-1,-1];
 	if(life_oldClothes != "") then {player addUniform life_oldClothes;} else {removeUniform player};
+		
+	[] call life_fnc_updateCopUniform;
+
 	if(life_oldHat != "") then {player addHeadgear life_oldHat} else {removeHeadgear player;};
 	if(life_oldGlasses != "") then {player addGoggles life_oldGlasses;} else {removeGoggles player};
 	if(backpack player != "") then
@@ -97,12 +100,12 @@ if(isNil "life_clothesPurchased") exitWith
 			};
 		};
 	};
-	
+
 	if(count life_oldUniformItems > 0) then
 	{
 		{[_x,true,false,false,true] call life_fnc_handleItem;} foreach life_oldUniformItems;
 	};
-	
+
 	if(vest player != "") then
 	{
 		if(life_oldVest == "") then
@@ -124,7 +127,11 @@ life_clothesPurchased = nil;
 //Check uniform purchase.
 if((life_clothing_purchase select 0) == -1) then
 {
-	if(life_oldClothes != uniform player) then {player addUniform life_oldClothes;};
+	if(life_oldClothes != uniform player) then
+	{
+		player addUniform life_oldClothes;
+		[] call life_fnc_updateCopUniform;
+	};
 };
 //Check hat
 if((life_clothing_purchase select 1) == -1) then
@@ -136,7 +143,7 @@ if((life_clothing_purchase select 2) == -1) then
 {
 	if(life_oldGlasses != goggles player) then
 	{
-		if(life_oldGlasses == "") then 
+		if(life_oldGlasses == "") then
 		{
 			removeGoggles player;
 		}
