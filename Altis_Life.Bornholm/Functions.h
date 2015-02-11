@@ -354,6 +354,8 @@ class Life_Client_Core
 		class getFuelRate {};
 		class fuelConsumption {};
 		class handleFuelConsumption {};
+		class checkCargo {};
+		class canAddCargo {};
 	};
 
 	class Cop

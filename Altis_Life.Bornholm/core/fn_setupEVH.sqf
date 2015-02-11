@@ -10,6 +10,10 @@ player addEventHandler["InventoryClosed", {
 	_this call life_fnc_inventoryClosed;
 	[3] call SOCK_fnc_updatePartial;
 	[] call life_fnc_updateCopUniform;
+
+	if (!(isNull (_this select 1)) && alive (_this select 1)) then {
+		[_this select 0, _this select 1] call life_fnc_checkCargo;
+	};
 }];
 player addEventHandler["InventoryOpened", {_this call life_fnc_inventoryOpened; if(playerside == civilian)then{[9] call SOCK_fnc_updatePartial; [10] call SOCK_fnc_updatePartial;};}];
 "life_fnc_MP_packet" addPublicVariableEventHandler {[_this select 0,_this select 1] call life_fnc_MPexec;};

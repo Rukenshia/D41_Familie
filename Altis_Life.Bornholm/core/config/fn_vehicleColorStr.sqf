@@ -61,7 +61,7 @@ switch (_vehicle) do
 			case 0: {_color = "Dark Red";};
 			case 1: {_color = "Silver";};
 			case 2: {_color = "Orange";};
-			case 6: {_color = "Taxi";};
+			case 3: {_color = "Taxi";};
 		};
 	};
 

@@ -22,7 +22,7 @@ if(_Item != "") then
 	{
 		_Player = player;
 		if(!((_Veh isKindOf "Car") || (_Veh isKindOf "Air") || (_Veh isKindOf "Ship") || (typeOf _Veh in ["D41_Box_IND_Grenades_F","D41_supplyCrate_F","D41_LagerhausKiste_F"]))) exitWith {D41_LagertEin = 0; hint "Land in Sicht!!\n(Kein Fahrzeug in der Mitte des Bildschirms)"};
-		//if (_Item in ["D41_Oel", "D41_OelRoh"] && !((typeOf _Veh) in ["C_Van_01_fuel_F","Civ_Truck_02_fuel2_F","D41_Ural_Fuel_MSV_01","B_Truck_01_fuel_F","O_Truck_03_fuel_F","D41_Heli_Transport_04_Fuel_F"])) exitWith{hint "Du benötigst einen Tanklaster dafür.";};
+		if (!([_Veh, _Item] call life_fnc_canAddCargo)) exitWith {D41_LagertEin = 0; hint "Du darfst dieses Item nicht einlagern.";};
 		disableUserInput true;
 		while{true}do
 		{
