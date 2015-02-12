@@ -198,7 +198,6 @@ switch (_vehicle) do
 		};
 	};
 
-
 	case "Offroad_Pol":
 	{
 		switch (_index) do

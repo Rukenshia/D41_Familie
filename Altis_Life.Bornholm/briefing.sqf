@@ -502,7 +502,7 @@ player createDiarySubject ["controls","Steuerung"];
 				Unser Forum findet Ihr unter: diefamilie.enjin.com<br/>
 				Feedback und Verbesserungsvorschläge sind gerne erwünscht. Bugmeldungen ebenso.<br/><br/>
 
-				Unser Teamspeak erreicht ihr über: 85.10.207.69<br/><br/>
+				Unser Teamspeak erreicht ihr über: 46.20.46.230:10122<br/><br/>
 				"
 		]
 	];

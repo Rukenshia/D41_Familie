@@ -14,3 +14,7 @@ switch (uniform player) do {
     player setObjecttextureGlobal [0, "textures\police_uniform.paa"];
   };
 };
+
+if (!isNull unitBackpack player) then {
+  (unitBackpack player) setObjectTextureGlobal [0, ""];
+};

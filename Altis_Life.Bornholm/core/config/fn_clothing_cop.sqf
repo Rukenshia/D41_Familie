@@ -140,6 +140,8 @@ switch (_filter) do
 			["B_Kitbag_blk",nil,300],
 			["B_Kitbag_rgr",nil,300],
 			["B_Parachute",nil,300],
+			["B_Carryall_oli",nil,500],
+			["B_Carryall_khk",nil,500],
 			["B_UAV_01_backpack_F",nil,15000]
 		];
 	};
