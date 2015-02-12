@@ -34,8 +34,7 @@ switch (_shop) do
 	case "med_shop":
 	{
 		_return = [
-			["D41_Offroad_Medic",2000],
-			["C_Van_01_box_F",6000]
+			["D41_Offroad_Medic",2000]
 		];
 
 		if (__GETC__(life_medicLevel) > 2) then {

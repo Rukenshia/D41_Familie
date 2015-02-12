@@ -88,7 +88,6 @@ switch (_type) do {
   case "bwi_a3_t6a_1";
   case "bwi_a3_t6a_3";
   case "bwi_a3_t6a_7";
-  case "D41_RHS_UH60M_MEV";
   case "D41_Heli_Transport_04_bench_F";
   case "D41_Heli_Transport_04_F";
   case "D41_Heli_Transport_04_covered_F";
@@ -96,8 +95,9 @@ switch (_type) do {
   case "D41_Heli_Transport_03_unarmed_F";
   case "D41_police_helicopter";
   case "I_Heli_light_03_unarmed_F";
-  case "D41_RHS_UH60M";
   case "civ_md500_urban": { _return = [460.0, 11.5]; };
+  case "D41_RHS_UH60M";
+  case "D41_RHS_UH60M_MEV": { _return = [530.0, 9.6]; };
 };
 
 _return;

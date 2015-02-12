@@ -11,7 +11,7 @@ player addEventHandler["InventoryClosed", {
 	[3] call SOCK_fnc_updatePartial;
 	[] call life_fnc_updateCopUniform;
 
-	if (!(isNull (_this select 1)) && alive (_this select 1)) then {
+	if ((_this select 1) isKindOf "Air" || (_this select 1) isKindOf "Car" || (_this select 1) isKindOf "Air") then {
 		[_this select 0, _this select 1] call life_fnc_checkCargo;
 	};
 }];
