@@ -134,10 +134,10 @@ switch (_shop) do
 
 	case "civ_truck":
 	{
-        _return = [];
-        if(life_D41_Karma > -3000)then
-        {
-            _return set[count _return,["C_Van_01_box_F",22500]]; //Iveco Boxer {2500}
+    _return = [];
+    if(life_D41_Karma > -3000)then
+    {
+      _return set[count _return,["C_Van_01_box_F",22500]]; //Iveco Boxer {2500}
 			_return set[count _return,["B_Truck_01_mover_F",54500]];  // HEMTT ohne alles {2500} 80Km/h
 			_return set[count _return,["Civ_Truck_02_transport_F",56500]]; // Kamaz Transport offen {4500} 90Km/h
 			_return set[count _return,["Civ_Truck_02_transport_plane_F",75000]]; // Kamaz Transport covered {5500} 90Km/h
@@ -147,14 +147,17 @@ switch (_shop) do
 			_return set[count _return,["C_Van_01_fuel_F",35000]]; //4x4 Fuel
 			_return set[count _return,["Civ_Truck_02_fuel2_F",70000]]; //Kamaz Fuel
 		};
+		if(life_D41_Karma > 3000)then
+		{
+			_return set[count _return,["O_Truck_03_fuel_F",150000]]; //Tempest Fuel
+		};
 		if(life_D41_Karma > 5000)then
-        {
+    {
 			_return set[count _return,["D41_typhoon_vdv", 230000]]; //Typhoon RHS (geschlossen) {10000} 110Km/h
 			_return set[count _return,["B_Truck_01_covered_F",340000]]; // HEMTT Transport covered {13000} 80Km/h
-			_return set[count _return,["O_Truck_03_fuel_F",150000]]; //Tempest Fuel
 			_return set[count _return,["B_Truck_01_fuel_F",275000]]; //HEMTT Fuel
-        };
     };
+  };
 
 	case "reb_car":
 	{
