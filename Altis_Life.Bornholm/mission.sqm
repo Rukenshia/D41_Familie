@@ -5005,7 +5005,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=1380;
+		items=1377;
 		class Item0
 		{
 			position[]={10495.71,12.276435,1972.1576};
@@ -12477,7 +12477,7 @@ class Mission
 		class Item721
 		{
 			position[]={9301.6162,82.713806,5399.3291};
-			azimut=4.7868552;
+			azimut=4.78686;
 			id=971;
 			side="EMPTY";
 			vehicle="Land_HelipadRescue_F";
@@ -13370,7 +13370,7 @@ class Mission
 		class Item810
 		{
 			position[]={17635.117,4.5100002,5552.7095};
-			azimut=96.661049;
+			azimut=96.661003;
 			offsetY=18.799999;
 			id=1060;
 			side="EMPTY";
@@ -19308,97 +19308,56 @@ class Mission
 		};
 		class Item1371
 		{
-			position[]={9738.9795,92.591835,7635.998};
-			azimut=159.97701;
-			special="NONE";
+			position[]={9450.0615,79.28447,5984.3965};
+			azimut=269.39359;
 			id=1621;
 			side="EMPTY";
-			vehicle="Land_ClutterCutter_large_F";
-			leader=1;
-			skill=0.60000002;
+			vehicle="Land_LampHalogen_F";
+			skill=0.40000001;
 		};
 		class Item1372
 		{
-			position[]={9745.666,92.580269,7632.9824};
-			azimut=159.97701;
-			special="NONE";
+			position[]={9311.9648,81.18,5441.8149};
+			azimut=96.661003;
+			offsetY=18.9;
 			id=1622;
 			side="EMPTY";
-			vehicle="Land_ClutterCutter_large_F";
-			leader=1;
+			vehicle="Land_DieselGroundPowerUnit_01_F";
 			skill=0.60000002;
+			init="this allowDamage false; this enableSimulation false; this addAction[""Fahrzeug einparken"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store'];";
 		};
 		class Item1373
 		{
-			position[]={9736.4512,92.35553,7628.417};
-			azimut=159.97701;
-			special="NONE";
+			position[]={9559.8975,84.669907,5565.8086};
+			azimut=38.912014;
 			id=1623;
 			side="EMPTY";
-			vehicle="Land_ClutterCutter_large_F";
-			leader=1;
-			skill=0.60000002;
+			vehicle="Land_LampHalogen_F";
+			skill=0.40000001;
 		};
 		class Item1374
 		{
-			position[]={9743.749,92.107063,7625.9702};
-			azimut=159.97701;
-			special="NONE";
+			position[]={9535.1348,84.476486,5566.1416};
+			azimut=38.912014;
 			id=1624;
 			side="EMPTY";
-			vehicle="Land_ClutterCutter_large_F";
-			leader=1;
-			skill=0.60000002;
+			vehicle="Land_LampHalogen_F";
+			skill=0.40000001;
 		};
 		class Item1375
 		{
-			position[]={9754.1055,92.337219,7630.0469};
-			azimut=159.97701;
-			special="NONE";
+			position[]={9472.4961,78.382774,5952.7515};
+			azimut=38.912014;
 			id=1625;
 			side="EMPTY";
-			vehicle="Land_ClutterCutter_large_F";
-			leader=1;
-			skill=0.60000002;
+			vehicle="Land_LampHalogen_F";
+			skill=0.40000001;
 		};
 		class Item1376
 		{
-			position[]={9750.1094,92.044167,7623.8916};
-			azimut=159.97701;
-			special="NONE";
+			position[]={9453.4473,77.019356,5937.6025};
+			azimut=38.912014;
 			id=1626;
-			side="EMPTY";
-			vehicle="Land_ClutterCutter_large_F";
-			leader=1;
-			skill=0.60000002;
-		};
-		class Item1377
-		{
-			position[]={9732.8643,92.548996,7633.7598};
-			azimut=202;
-			special="NONE";
-			id=1627;
-			side="EMPTY";
-			vehicle="Land_KartStand_01_F";
-			leader=1;
-			skill=0.60000002;
-		};
-		class Item1378
-		{
-			position[]={9732.0088,92.516006,7631.9663};
-			azimut=202;
-			special="NONE";
-			id=1628;
-			side="EMPTY";
-			vehicle="Land_KartTyre_01_x4_F";
-			leader=1;
-			skill=0.60000002;
-		};
-		class Item1379
-		{
-			position[]={9450.0615,79.28447,5984.3965};
-			azimut=269.39359;
-			id=1629;
 			side="EMPTY";
 			vehicle="Land_LampHalogen_F";
 			skill=0.40000001;
