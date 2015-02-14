@@ -62,6 +62,7 @@ switch (_vehicle) do
 			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_co.paa","civ"],
 			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_03_co.paa","civ"],
 			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_04_co.paa","civ"],
+			["\a3\soft_f_gamma\SUV_01\Data\suv_01_ext_04_co.paa","cop"],
 			["textures\suv_taxi.paa","civ"]
 		];
 	};
@@ -164,7 +165,8 @@ switch (_vehicle) do
 		[
 			["textures\police_suv.paa","cop"],
 			["textures\police_suv_highway.paa","cop"],
-			["textures\police_suv_zoll.paa","cop"]
+			["textures\police_suv_zoll.paa","cop"],
+			["textures\police_ksk_suv.paa","cop"]
 		]
 	};
 

@@ -33,9 +33,11 @@ switch (_shop) do
 
 	case "med_shop":
 	{
-		_return = [
-			["D41_Offroad_Medic",2000]
-		];
+		_return = [];
+
+		if (__GETC__(life_medicLevel) > 1) then {
+			_return set[count _return, ["D41_Offroad_Medic",2000]];
+		};
 
 		if (__GETC__(life_medicLevel) > 2) then {
 			_return set[count _return, ["O_Truck_02_medical_F",23000]];
@@ -209,6 +211,8 @@ switch (_shop) do
 		if(__GETC__(life_copLevel) > 2) then {
 			_return set[count _return,
 			["C_Van_01_box_F", 5000]];
+			_return set[count _return,
+			["C_SUV_01_F",5000]]; //BMW X6
 		};
 		if(__GETC__(life_coplevel) > 3) then
 		{

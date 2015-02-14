@@ -23,6 +23,7 @@ switch (_filter) do
 		if(!license_cop_gangfirma && __GETC__(life_coplevel) > 0) then
 		{
 			_ret set[count _ret,["D41_police_man_uniform","Polizeiuniform (Grün)",300]];
+			_ret set[count _ret,["U_I_CombatUniform_tshirt", "Zolluniform", 300]];
 		};
 		if(!license_cop_gangfirma && __GETC__(life_coplevel) > 5) then
 		{

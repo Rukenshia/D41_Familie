@@ -13,6 +13,10 @@ switch (uniform player) do {
   {
     player setObjecttextureGlobal [0, "textures\police_uniform.paa"];
   };
+  case "U_I_CombatUniform_tshirt":
+  {
+    player setObjecttextureGlobal [0, "textures\police_uniform_zoll.paa"];
+  };
 };
 
 if (!isNull unitBackpack player) then {
