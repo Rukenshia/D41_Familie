@@ -1,7 +1,7 @@
 /*
 	File: fn_bankTransfer.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Figure it out again.
 */
@@ -29,3 +29,6 @@ closeDialog 0;
 hint format["Du hast %1€ an %2 überwiesen.\n\nDie Überweisungsgebühr in Höhe von %3€ wurde von Deinem Konto abgezogen.",[_val] call life_fnc_numberText,_unit getVariable["realname",name _unit],[_tax] call life_fnc_numberText];
 [] call life_fnc_hudUpdate;
 [] call SOCK_fnc_updateRequest; //Silent Sync
+
+// Log into server
+[[format["%1 hat %2€ an %3 überwiesen.",name player, [_val] call life_fnc_numberText, _unit getVariable["realname",name _unit]]], "TON_fnc_logMessage", false] call life_fnc_MP;

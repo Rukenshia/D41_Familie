@@ -107,6 +107,7 @@ class CfgFunctions
 			class keyManagement {};
 
 			class fuelConsumption {};
+			class logMessage {};
 		};
 
 		class Housing

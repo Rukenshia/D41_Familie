@@ -1,7 +1,7 @@
 /*
 	File: fn_giveMoney.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Gives the selected amount of money to the selected player.
 */
@@ -27,3 +27,4 @@ hint format["You gave $%1 to %2",[(parseNumber(_amount))] call life_fnc_numberTe
 D41_Geld = D41_Geld - (parseNumber(_amount));
 [0] call SOCK_fnc_updatePartial;
 [[_curTarget,_amount,player],"life_fnc_receiveMoney",_curTarget,false] call life_fnc_MP;
+[[format["%1 hat %2€ an %3 gegeben.",name player, [(parseNumber(_amount))] call life_fnc_numberText, life_pInact_curTarget getVariable["realname",name life_pInact_curTarget]]], "TON_fnc_logMessage", false] call life_fnc_MP;

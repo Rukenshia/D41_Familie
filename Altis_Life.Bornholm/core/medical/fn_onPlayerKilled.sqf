@@ -1,7 +1,7 @@
 /*
 	File: fn_onPlayerKilled.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	When the player dies collect various information about that player
 	and pull up the death dialog / camera functionality.
@@ -35,6 +35,13 @@ life_deathCamera camSetFOV .5;
 life_deathCamera camSetFocus [50,0];
 life_deathCamera camCommit 0;
 
+if (isNull _killer) then {
+	[[format["%1 wurde von %2 getötet. Bargeld verloren: %3 || Grid: %4 || Pos(ATL): %5", name player, _killer getVariable["realname",name _killer]], D41_Geld, mapGridPosition _unit, getPosATL _unit], "TON_fnc_logMessage", false, false] call life_fnc_MP;
+}
+else {
+	[[format["%1 wurde getötet. Bargeld verloren: %2 || Grid: %3 || Pos(ATL): %4", name player, D41_Geld, mapGridPosition _unit, getPosATL _unit]], "TON_fnc_logMessage", false, false] call life_fnc_MP;
+};
+
 (findDisplay 7300) displaySetEventHandler ["KeyDown","if((_this select 1) == 1) then {true}"]; //Block the ESC menu
 
 //Create a thread for something?
@@ -44,7 +51,7 @@ _unit spawn
 	disableSerialization;
 	_RespawnBtn = ((findDisplay 7300) displayCtrl 7302);
 	_Timer = ((findDisplay 7300) displayCtrl 7301);
-	
+
 	_maxTime = time + (life_respawn_timer * 60);
 	_RespawnBtn ctrlEnable false;
 	waitUntil {_Timer ctrlSetText format[localize "STR_Medic_Respawn",[(_maxTime - time),"MM:SS.MS"] call BIS_fnc_secondsToString];
@@ -84,7 +91,7 @@ if(!isNull _killer && {_killer != _unit} && {side _killer != west} && {alive _ki
 	else
 	{
 		[[getPlayerUID _killer,_killer getVariable["realname",name _killer],"187"],"life_fnc_wantedAdd",false,false] call life_fnc_MP;
-		
+
 		if(!local _killer) then
 		{
 			[[3],"life_fnc_removeLicenses",_killer,FALSE] call life_fnc_MP;
