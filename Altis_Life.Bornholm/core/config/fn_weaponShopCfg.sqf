@@ -2,13 +2,13 @@
 /*
 	File: fn_weaponShopCfg.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Master configuration file for the weapon shops.
-	
+
 	Return:
 	String: Close the menu
-	Array: 
+	Array:
 	[Shop Name,
 	[ //Array of items to add to the store
 		[classname,Custom Name (set nil for default),price]
@@ -131,7 +131,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "Waffendealer_MPs": //Masterwaffenliste für alle MPs inkl. Preisen und Magazinen
 	{
 		switch(true) do
@@ -186,7 +186,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "Waffendealer_Sturm_leicht": //Masterwaffenliste für alle leichten Sturmgewehre inkl. Preisen und Magazinen
 	{
 		switch(true) do
@@ -196,7 +196,7 @@ switch(_shop) do
 			default
 			{
 				["Waffendealel Sturm Leicht",
-					[	
+					[
 						["rhs_weap_ak74m_2mag",nil,35000],
 						["rhs_weap_ak74m_2mag_camo",nil,35000],
 						["rhs_weap_ak74m",nil,35000],
@@ -232,7 +232,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "Waffendealer_Sturm_mittel": //Masterwaffenliste für alle mittleren Sturmgewehre inkl. Preisen und Magazinen
 	{
 		switch(true) do
@@ -284,7 +284,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "Waffendealer_Sturm_schwer": //Masterwaffenliste für alle schweren Sturmgewehre inkl. Preisen und Magazinen
 	{
 		switch(true) do
@@ -341,7 +341,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "Waffendealer_Sniper": //Masterwaffenliste für alle Sniperwaffen inkl. Preisen und Magazinen
 	{
 		switch(true) do
@@ -391,7 +391,7 @@ switch(_shop) do
 						["optic_LRPS","LRPS",5000],
 						["optic_DMS","DMS",5000],
 						["optic_SOS","SOS",5000],
-						["optic_NVS","NVS",7500],	
+						["optic_NVS","NVS",7500],
 						["RH_m3lr","TS A-2",5000],
 						["rhsusf_acc_HAMR",nil,3500],
 						["rhsusf_acc_LEUPOLDMK4",nil,5000],
@@ -400,13 +400,13 @@ switch(_shop) do
 						["rhsusf_acc_compm4",nil,3500],
 						["rhsusf_acc_anpeq15",nil,3500],
 						["rhs_acc_pso1m2",nil,5000],
-						["RH_spr_mbs","Silencer SAM R/ MK 12",8000]				
+						["RH_spr_mbs","Silencer SAM R/ MK 12",8000]
 					]
 				];
 			};
 		};
 	};
-	
+
 	case "Waffendealer_MGs": //Masterwaffenliste für alle MGs und sonstige Waffen inkl. Preisen und Magazinen
 	{
 		switch(true) do
@@ -461,13 +461,13 @@ switch(_shop) do
 						["3Rnd_UGL_FlareCIR_F",nil,5000],
 						["DemoCharge_Remote_Mag",nil,50000],
 						["SatchelCharge_Remote_Mag",nil,150000]
-						
+
 					]
 				];
 			};
 		};
 	};
-	
+
 	case "Waffendealer_attachments": //Masterwaffenliste für alle Visiere, Lampen, Schalldämpfer etc
 	{
 		switch(true) do
@@ -477,7 +477,7 @@ switch(_shop) do
 			default
 			{
 				["Waffendealel Zubehör",
-					[	
+					[
 					//Schalldämpfer
 						["hlc_muzzle_545SUP_AK",nil,8000],
 						["muzzle_snds_B",nil,8000],
@@ -566,7 +566,7 @@ switch(_shop) do
 						["optic_LRPS","LRPS",5000],
 						["optic_DMS","DMS",5000],
 						["optic_SOS","SOS",5000],
-						["optic_NVS","NVS",5000],	
+						["optic_NVS","NVS",5000],
 						["RH_m3lr","TS A-2",5000],
 						["hlc_optic_LRT_m14",nil,5000],
 						["rhs_acc_pso1m2",nil,5000],
@@ -574,7 +574,7 @@ switch(_shop) do
 						["rhsusf_acc_LEUPOLDMK4_2",nil,5000],
 						["FHQ_optic_LeupoldERT_tan",nil,5000],
 						["FHQ_optic_LeupoldERT",nil,5000],
-					//Nightvision	
+					//Nightvision
 						["NVGoggles",nil,200], //beige
 						["NVGoggles_OPFOR",nil,200], //schwarz
 						["NVGoggles_INDEP",nil,200] //grün
@@ -583,8 +583,8 @@ switch(_shop) do
 			};
 		};
 	};
-	
-	
+
+
 	case "cop_stufe1":
 	{
 		switch(true) do
@@ -616,7 +616,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe2":
 	{
 		switch(true) do
@@ -654,7 +654,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe3":
 	{
 		switch(true) do
@@ -695,7 +695,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe4":
 	{
 		switch(true) do
@@ -740,7 +740,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe5":
 	{
 		switch(true) do
@@ -780,7 +780,6 @@ switch(_shop) do
 						["optic_Hamr",nil,1000],
 						["acc_flashlight",nil,500],
 						["acc_pointer_IR",nil,500],
-						["HandGrenade_Stone","Flashbang",800],
 						["Rangefinder",nil,15],
 						["ItemGPS",nil,10],
 						["ItemMap","Karte",30],
@@ -798,7 +797,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe6":
 	{
 		switch(true) do
@@ -831,7 +830,7 @@ switch(_shop) do
 						["30rnd_556x45_STANAG",nil,1000],
 						["30Rnd_556x45_Stanag_Tracer_Green",nil,1000],
 						["hlc_rifle_vendimus","Dissipator",8000],
-						["29rnd_300BLK_STANAG",nil,1200],						
+						["29rnd_300BLK_STANAG",nil,1200],
 						["RH_m3lr",nil,1000],
 						["rhsusf_acc_ACOG3",nil,1000],
 						["FHQ_optic_AC11704",nil,500],
@@ -859,7 +858,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe7":
 	{
 		switch(true) do
@@ -927,7 +926,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe8":
 	{
 		switch(true) do
@@ -998,7 +997,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_stufe9":
 	{
 		switch(true) do
@@ -1071,7 +1070,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_swat":
 	{
 		switch(true) do
@@ -1186,7 +1185,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_firma_rekrut":
 	{
 		switch(true) do
@@ -1222,7 +1221,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_firma":
 	{
 		switch(true) do
@@ -1259,7 +1258,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "cop_firma_chef":
 	{
 		switch(true) do
@@ -1303,10 +1302,10 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "med_basic":
 	{
-		switch (true) do 
+		switch (true) do
 		{
 			case (playerSide != independent): {"Du bist kein Sanitäter!"};
 			default {
@@ -1325,7 +1324,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "rebel":
 	{
 		switch(true) do
@@ -1370,7 +1369,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "rebelinsel":
 	{
 		switch(true) do
@@ -1423,7 +1422,7 @@ switch(_shop) do
 			};
 		};
 	};
-	
+
 	case "gangdmw":
 	{
 		switch(true) do
@@ -1483,7 +1482,7 @@ switch(_shop) do
 			};
 		};
 	};
-		
+
 	case "gangadac":
 	{
 		["ADAC Ausrüstung",
@@ -1500,7 +1499,7 @@ switch(_shop) do
 			]
 		];
 	};
-		
+
 	case "gun":
 	{
 		switch(true) do
@@ -1544,7 +1543,7 @@ switch(_shop) do
 			};
 		};
 	};
-		
+
 	case "genstore":
 	{
 		["Needful Things",
