@@ -45,7 +45,7 @@ compileFinal "
 	if(_from == """") exitWith {};
 	D41_atmGeld = D41_atmGeld + _val;
 	hint format[""%1 has wire transferred $%2 to you."",_from,[_val] call life_fnc_numberText];
-	[0] call SOCK_fnc_updatePartial;
+	[1] call SOCK_fnc_updatePartial;
 	[[format[""%1 hat Geld von %2 erhalten (ATM-TRANSFER)."",name player, _from]], ""TON_fnc_logMessage"", false, false] call life_fnc_MP;
 ";
 publicVariable "TON_fnc_clientWireTransfer";
