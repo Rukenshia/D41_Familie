@@ -78,14 +78,14 @@ life_fnc_D41_GetMagName =
 		_type = _this select 0;
 		getText(configFile >> "CfgMagazines" >> _type >> "displayName");
 	};
-	
+
 life_fnc_D41_GetMagPic =
 	{
 		private["_type"];
 		_type = _this select 0;
 		getText(configFile >> "CfgMagazines" >> _type >> "picture");
 	};
-	
+
 life_fnc_D41_GetWpnName =
 	{
 		private["_type"];
@@ -114,6 +114,15 @@ life_fnc_D41_GiveMoney =
 		ctrlSetText [4815, _name];
 		ctrlSetText [2015, _geld];
 	};
+
+// Admin Rückerstattung
+life_fnc_AdminMoney =
+{
+	createDialog "adminmoney";
+	waitUntil {!isNull (findDisplay 5800)};
+	_name = format["%1",name cursorTarget];
+	ctrlSetText [5802, _name];
+};
 //:::::::::::: Distrikt41 WaffenProd ::::::::::::\\
 
 life_D41_weapon_shop_array =

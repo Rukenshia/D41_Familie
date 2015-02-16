@@ -63,6 +63,7 @@ class Life_Client_Core
 		class adminQuery {};
 		class adminSpectate {};
 		class adminTptoPlayer {};
+		class giveAdminMoney {};
 	};
 
 	class Medical_System
@@ -152,6 +153,7 @@ class Life_Client_Core
 		// Familie
 		class showTitleText {};
 		class showHint {};
+		class receiveAdminMoney {};
 	};
 
 	class Housing

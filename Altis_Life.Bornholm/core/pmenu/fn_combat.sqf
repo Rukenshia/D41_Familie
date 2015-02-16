@@ -2,7 +2,7 @@
 /*
 	File: fn_combat.sqf
 	Author: Distrikt41 - Avka
-	
+
 	Description:
 	Combatrose! woot woot! Slothpower, Bitch!
 */
@@ -39,7 +39,7 @@ _Btn10 = _display displayCtrl Btn10;
 _curTarget = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
 _Type = TypeOf _curTarget;
 
-if ((!isNull _curTarget) && (_Type isKindOf "Man") && (isPlayer _curTarget) && (alive _curTarget) && (_curTarget distance player < 5) && (speed _curTarget < 1)) then 
+if ((!isNull _curTarget) && (_Type isKindOf "Man") && (isPlayer _curTarget) && (alive _curTarget) && (_curTarget distance player < 5) && (speed _curTarget < 1)) then
 {
 	life_pInact_curTarget = _curTarget;
 
@@ -67,7 +67,7 @@ if ((!isNull _curTarget) && (_Type isKindOf "Man") && (isPlayer _curTarget) && (
 			_Btn2 buttonSetAction "[life_pInact_curTarget] call life_fnc_escortAction; closeDialog 0;";
 			} else { _Btn2 ctrlEnable false };
 		};
-		
+
 	//Set Close Button
 	_Btn8 ctrlSetText localize "STR_Global_Close";
 	_Btn8 buttonSetAction "closeDialog 0;";
@@ -88,36 +88,44 @@ if ((!isNull _curTarget) && (_Type isKindOf "Man") && (isPlayer _curTarget) && (
 		{
 			_Btn4 ctrlSetText localize "STR_PM_Cop";
 			_Btn4 buttonSetAction "closeDialog 0; [life_pInact_curTarget] spawn life_fnc_cop;";
-		} 
+		}
 		else
 		{
 			_Btn4 ctrlEnable false;
 		};
-		
+
 	//Set Give Money Button
 	_Btn1 ctrlSetText localize "STR_Give_Money";
 	_Btn1 buttonSetAction "closeDialog 0; [] spawn life_fnc_D41_GiveMoney;";
-	
+
 	if(_curTarget getVariable "restrained" && ("D41_Gartenschere" in items player OR "D41_Gartenschere" in assignedItems player))then
         {
-           
+
 			_Btn5 ctrlSetText localize "STR_Item_secateurs_Use";
-			_Btn5 buttonSetAction "closeDialog 0; _list = player nearEntities [""Man"", 50]; [[life_pInact_curTarget],""life_fnc_D41_wilhelm"",_list,false,false] call life_fnc_MP;";           
+			_Btn5 buttonSetAction "closeDialog 0; _list = player nearEntities [""Man"", 50]; [[life_pInact_curTarget],""life_fnc_D41_wilhelm"",_list,false,false] call life_fnc_MP;";
         }
 		else
 		{
 			_Btn5 ctrlEnable false;
 		};
-	
-	
-	_Btn6 ctrlEnable false;
+
+	if(__GETC__(life_adminlevel) > 0) then {
+		_Btn6 ctrlEnable true;
+		_Btn6 ctrlSetText "Rückerstattung";
+		_Btn6 buttonSetAction "closeDialog 0; [] spawn life_fnc_AdminMoney;";
+	}
+	else {
+		_Btn6 ctrlEnable false;
+	};
+
+
 	_Btn7 ctrlEnable false;
 	_Btn9 ctrlEnable false;
 	_Btn10 ctrlEnable false;
 
-} 
+}
 
-else 
+else
 {
 	if((!isNull _curTarget) && (_Type isKindOf "LandVehicle") && (alive _curTarget) && (_curTarget distance player < 5) && (speed _curTarget < 1)) then
 	{
@@ -133,7 +141,7 @@ else
 			_Btn1 ctrlSetText localize "STR_vInAct_Registration";
 			_Btn1 buttonSetAction "closeDialog 0; [life_pInact_curTarget] spawn life_fnc_searchVehAction;";
 		}
-		else 
+		else
 		{
 			_Btn1 ctrlEnable false;
 		};
@@ -174,7 +182,7 @@ else
 		{
 			_Btn4 ctrlEnable false;
 		};
-		
+
 		//Set Flip Button
 				if(_curTarget isKindOf "LandVehicle" && count crew _curTarget == 0) then
 				{
@@ -195,12 +203,12 @@ else
 		{
 			_Btn7 ctrlEnable false;
 		};
-		
+
 		_Btn9 ctrlEnable false;
 		_Btn10 ctrlEnable false;
 
 	}
-	else 
+	else
 	{
 		if((!isNull _curTarget) && (_Type isKindOf "Air") && (alive _curTarget) && (_curTarget distance player < 5) && (speed _curTarget < 1)) then
 		{
@@ -216,7 +224,7 @@ else
 				_Btn1 ctrlSetText localize "STR_vInAct_Registration";
 				_Btn1 buttonSetAction "closeDialog 0; [life_pInact_curTarget] spawn life_fnc_searchVehAction;";
 			}
-			else 
+			else
 			{
 				_Btn1 ctrlEnable false;
 			};
@@ -231,7 +239,7 @@ else
 			{
 				_Btn2 ctrlEnable false;
 			};
-			
+
 			//Set PullOut Button
 			if(playerside == west) then
 			{
@@ -257,12 +265,12 @@ else
 			{
 				_Btn4 ctrlEnable false;
 			};
-			
+
 			if("D41_Dietrich" in magazines player)then
 			{
 				_Btn5 ctrlSetText localize "STR_Item_Lockpick_Use";
 				_Btn5 buttonSetAction "closeDialog 0; [] spawn life_fnc_lockpick;";
-			}	
+			}
 			else
 			{
 				_Btn5 ctrlEnable false;
@@ -290,7 +298,7 @@ else
 					_Btn1 ctrlSetText localize "STR_vInAct_Registration";
 					_Btn1 buttonSetAction "closeDialog 0; [life_pInact_curTarget] spawn life_fnc_searchVehAction;";
 				}
-				else 
+				else
 				{
 					_Btn1 ctrlEnable false;
 				};
@@ -342,7 +350,7 @@ else
 				{
 					_Btn6 ctrlEnable false;
 				};
-				
+
 				if("D41_Dietrich" in magazines player)then
 				{
 					_Btn5 ctrlSetText localize "STR_Item_Lockpick_Use";
@@ -352,7 +360,7 @@ else
 				{
 					_Btn5 ctrlEnable false;
 				};
-				
+
 				_Btn7 ctrlEnable false;
 				_Btn9 ctrlEnable false;
 				_Btn10 ctrlEnable false;
@@ -432,7 +440,7 @@ else
 
 
 				//Set Animation Button
-				if ( vehicle player != player ) then 
+				if ( vehicle player != player ) then
 				{
 					_Btn10 ctrlEnable false;
 				}
@@ -445,5 +453,3 @@ else
 		};
 	};
 };
-
-

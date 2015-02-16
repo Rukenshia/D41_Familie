@@ -24,7 +24,7 @@ player addEventHandler
 			_GMenu ctrlSetPosition  [-0.07, 0.96, 0.36, 0.05];
 			_GMenu ctrlSetBackgroundColor [0, 0, 0, 0.65];
 			_GMenu ctrlCommit 0;
-			_GMenustr = format ["Bargeld: €%1",D41_Geld];
+			_GMenustr = format ["Bargeld: €%1",[D41_Geld] call life_fnc_numberText];
 			_GMenu ctrlSetTooltip "Bargeld";
 			_GMenu ctrlSetText _GMenustr;
 			//Geld-Bank
@@ -32,7 +32,7 @@ player addEventHandler
 			_GMenu2 ctrlSetPosition  [0.338, 0.96, 0.36, 0.05];
 			_GMenu2 ctrlSetBackgroundColor [0, 0, 0, 0.65];
 			_GMenu2 ctrlCommit 0;
-			_GMenu2str2 = format ["Kontostand: €%1",D41_atmGeld];
+			_GMenu2str2 = format ["Kontostand: €%1",[D41_atmGeld] call life_fnc_numberText];
 			_GMenu2 ctrlSetTooltip "Kontostand";
 			_GMenu2 ctrlSetText _GMenu2str2;
 			//Karma

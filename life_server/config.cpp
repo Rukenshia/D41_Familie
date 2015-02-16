@@ -108,6 +108,8 @@ class CfgFunctions
 
 			class fuelConsumption {};
 			class logMessage {};
+
+			class adminMoney {};
 		};
 
 		class Housing

@@ -12,6 +12,7 @@
 #include "shops.hpp"
 #include "ui.hpp"
 #include "admin_menu.hpp"
+#include "adminmoney.hpp"
 #include "wanted_list.hpp"
 #include "ticket.hpp"
 #include "clothing.hpp"
