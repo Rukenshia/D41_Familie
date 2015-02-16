@@ -413,7 +413,7 @@ else
 				};
 
 				//Set Admin Button
-				if((__GETC__(life_adminlevel)) == 0)then
+				if((__GETC__(life_adminlevel)) < 2)then
 				{
 					_Btn6 ctrlEnable false;
 				}
