@@ -23,18 +23,18 @@ if((str(player) in ["cop_1","cop_2","cop_3","cop_4","cop_5","cop_6","cop_7","cop
 	};
 	switch (__GETC__(life_coplevel)) do
 			{
-				case 1: { life_paycheck = (1500)}; //Cadet
-				case 2: { life_paycheck = (1800)}; //Officer
-				case 3: { life_paycheck = (2100)}; //Cpl
-				case 4: { life_paycheck = (2400)}; //Sgt
-				case 5: { life_paycheck = (2700)}; //Lt
-				case 6: { life_paycheck = (3000)}; //Captain
-				case 7: { life_paycheck = (3300)}; //???
-				case 8: { life_paycheck = (3600)}; //???
-				case 9: { life_paycheck = (3900)}; //???
-				case 10: { life_paycheck = (4200)}; //Chief Ast.
-				case 11: { life_paycheck = (4500)}; //Chief
-				default { life_paycheck = (500);}; //default in-case anything goes tits up
+				case 1: { life_paycheck = (350)}; //Cadet
+				case 2: { life_paycheck = (350)}; //Officer
+				case 3: { life_paycheck = (350)}; //Cpl
+				case 4: { life_paycheck = (350)}; //Sgt
+				case 5: { life_paycheck = (350)}; //Lt
+				case 6: { life_paycheck = (350)}; //Captain
+				case 7: { life_paycheck = (350)}; //???
+				case 8: { life_paycheck = (350)}; //???
+				case 9: { life_paycheck = (350)}; //???
+				case 10: { life_paycheck = (350)}; //Chief Ast.
+				case 11: { life_paycheck = (350)}; //Chief
+				default { life_paycheck = (350);}; //default in-case anything goes tits up
 	};
 };
 
