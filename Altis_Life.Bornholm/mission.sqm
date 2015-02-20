@@ -215,7 +215,8 @@ class Mission
 		"A3_Structures_F_Heli_Ind_Cargo",
 		"A3_Structures_F_Heli_Civ_Constructions",
 		"A3_Structures_F_EPC_Walls",
-		"A3_Structures_F_Civ_Offices"
+		"A3_Structures_F_Civ_Offices",
+		"A3_Structures_F_Bootcamp_Items_Electronics"
 	};
 	addOnsAuto[]=
 	{
@@ -312,6 +313,7 @@ class Mission
 		"A3_Structures_F_EPC_Walls",
 		"A3_Structures_F_Ind_Tank",
 		"A3_Structures_F_Civ_Offices",
+		"A3_Structures_F_Bootcamp_Items_Electronics",
 		"bornholm"
 	};
 	randomSeed=2004553;
@@ -2454,7 +2456,7 @@ class Mission
 				class Item29
 				{
 					position[]={18159.613,3.8860559,9682.1221};
-					azimut=393.4476;
+					azimut=393.448;
 					special="NONE";
 					id=106;
 					side="CIV";
@@ -2576,7 +2578,7 @@ class Mission
 				class Item40
 				{
 					position[]={9429.6074,80.297676,5694.6865};
-					azimut=350.3616;
+					azimut=350.362;
 					special="NONE";
 					id=117;
 					side="CIV";
@@ -3777,8 +3779,9 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={781.90033,2.4323692,7320.7061};
+					position[]={768.70203,0,7303.9531};
 					azimut=-47.954201;
+					offsetY=1.5;
 					special="NONE";
 					id=180;
 					side="CIV";
@@ -5005,7 +5008,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=1377;
+		items=1380;
 		class Item0
 		{
 			position[]={10495.71,12.276435,1972.1576};
@@ -8908,8 +8911,9 @@ class Mission
 		};
 		class Item375
 		{
-			position[]={781.28705,2.4340315,7321.1387};
+			position[]={768.06049,0,7304.8979};
 			azimut=-212.965;
+			offsetY=1.5;
 			id=625;
 			side="EMPTY";
 			vehicle="Land_CashDesk_F";
@@ -19362,10 +19366,43 @@ class Mission
 			vehicle="Land_LampHalogen_F";
 			skill=0.40000001;
 		};
+		class Item1377
+		{
+			position[]={15451.083,41.599068,10226.715};
+			azimut=50;
+			offsetY=0.41999999;
+			id=1627;
+			side="EMPTY";
+			vehicle="Land_CarBattery_01_F";
+			skill=0.60000002;
+			init="this enableSimulation false; this allowDamage false; this SetVectorUp [0,0,1]; this addAction [""Marktpreisabfrage"",""core\D41\D41_MarktPreisabfrage.sqf""]; this enableSimulation false; this allowDamage false; this addAction[""<t color='#ADFF2F'>ATM</t>"",life_fnc_atmMenu]; this enableSimulation false; this allowDamage false; this addAction[""Vehicle Garage"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;  life_garage_type = ""Car""; createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Fetching Vehicles....""];   life_garage_sp = ""car_g_55"";  },"""",0,false, false,"""",'!license_civ_rebel && playerSide == civilian']; this addAction[""Fahrzeug einparken"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store'];";
+		};
+		class Item1378
+		{
+			position[]={5093.2827,61.697857,9061.5986};
+			azimut=50;
+			offsetY=0.41999999;
+			id=1628;
+			side="EMPTY";
+			vehicle="Land_CarBattery_01_F";
+			skill=0.60000002;
+			init="this enableSimulation false; this allowDamage false; this SetVectorUp [0,0,1]; this addAction [""Marktpreisabfrage"",""core\D41\D41_MarktPreisabfrage.sqf""]; this enableSimulation false; this allowDamage false; this addAction[""<t color='#ADFF2F'>ATM</t>"",life_fnc_atmMenu]; this enableSimulation false; this allowDamage false; this addAction[""Vehicle Garage"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;  life_garage_type = ""Car""; createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Fetching Vehicles....""];   life_garage_sp = ""car_g_56"";  },"""",0,false, false,"""",'!license_civ_rebel && playerSide == civilian']; this addAction[""Fahrzeug einparken"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store'];";
+		};
+		class Item1379
+		{
+			position[]={5197.5815,56.00951,8884.3105};
+			azimut=50;
+			offsetY=0.41999999;
+			id=1629;
+			side="EMPTY";
+			vehicle="Land_CarBattery_01_F";
+			skill=0.60000002;
+			init="this enableSimulation false; this allowDamage false; this SetVectorUp [0,0,1]; this addAction [""Marktpreisabfrage"",""core\D41\D41_MarktPreisabfrage.sqf""]; this enableSimulation false; this allowDamage false; this addAction[""<t color='#ADFF2F'>ATM</t>"",life_fnc_atmMenu]; this enableSimulation false; this allowDamage false; this addAction[""Vehicle Garage"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;  life_garage_type = ""Car""; createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Fetching Vehicles....""];   life_garage_sp = ""car_g_57"";  },"""",0,false, false,"""",'!license_civ_rebel && playerSide == civilian']; this addAction[""Fahrzeug einparken"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store']; this allowDamage false; this enableSimulation false; this addAction[""Market"",life_fnc_virt_menu,""market""]; ";
+		};
 	};
 	class Markers
 	{
-		items=378;
+		items=381;
 		class Item0
 		{
 			position[]={10472.188,12.088387,1975.0801};
@@ -20314,7 +20351,7 @@ class Mission
 			position[]={18161.711,3.6538696,9687.1563};
 			name="car_g_2";
 			type="Empty";
-			angle=288.27454;
+			angle=288.27499;
 		};
 		class Item118
 		{
@@ -22487,6 +22524,24 @@ class Mission
 			text="TS IP: 46.20.46.230:10122";
 			type="mil_dot";
 			colorName="ColorBlue";
+		};
+		class Item378
+		{
+			position[]={15436.483,41.829815,10223.777};
+			name="car_g_55";
+			type="Empty";
+		};
+		class Item379
+		{
+			position[]={5101.2925,61.648254,9055.5449};
+			name="car_g_56";
+			type="Empty";
+		};
+		class Item380
+		{
+			position[]={5207.124,56.648426,8903.1709};
+			name="car_g_57";
+			type="Empty";
 		};
 	};
 	class Sensors
