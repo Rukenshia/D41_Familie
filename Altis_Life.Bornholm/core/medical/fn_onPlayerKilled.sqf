@@ -13,7 +13,7 @@ _killer = [_this,1,ObjNull,[ObjNull]] call BIS_fnc_param;
 
 //D41_Waffen/Items in Box schmeißen
 //Medics dont spawn loot! nononononoooo!
-if(playerside != independent)then{ [] spawn life_fnc_D41_DelGWH; };
+if(playerside != independent && playerside != west)then{ [] spawn life_fnc_D41_DelGWH; };
 ////////////////////////
 
 //Set some vars

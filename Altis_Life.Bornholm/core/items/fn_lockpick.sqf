@@ -1,7 +1,7 @@
 /*
 	File: fn_lockpick.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Main functionality for lock-picking.
 */
@@ -11,13 +11,13 @@ life_interrupted = false;
 if(life_action_inUse) exitWith {};
 if(isNull _curTarget) exitWith {}; //Bad type
 _distance = ((boundingBox _curTarget select 1) select 0) + 2;
-if(player distance _curTarget > _distance) exitWith {hint "Biste Slenderman? Ich glaube nicht! Beweg dich näher ran!"; player addMagazine "D41_Dietrich";}; //Too far
+if(player distance _curTarget > _distance) exitWith { hint "Biste Slenderman? Ich glaube nicht! Beweg dich näher ran!"; }; //Too far
 _isVehicle = if((_curTarget isKindOf "LandVehicle") OR (_curTarget isKindOf "Ship") OR (_curTarget isKindOf "Air")) then {true} else {false};
-if(_isVehicle && _curTarget in life_vehicles) exitWith {player addMagazine "D41_Dietrich"; hint localize "STR_ISTR_Lock_AlreadyHave"};
+if(_isVehicle && _curTarget in life_vehicles) exitWith { hint localize "STR_ISTR_Lock_AlreadyHave"};
 
 //More error checks
-if(!_isVehicle && !isPlayer _curTarget) exitWith { player addMagazine "D41_Dietrich"; };
-if(!_isVehicle && !(_curTarget getVariable["restrained",false])) exitWith { player addMagazine "D41_Dietrich"; };
+if(!_isVehicle && !isPlayer _curTarget) exitWith {};
+if(!_isVehicle && !(_curTarget getVariable["restrained",false])) exitWith {};
 
 _title = format[localize "STR_ISTR_Lock_Process",if(!_isVehicle) then {"Handcuffs"} else {getText(configFile >> "CfgVehicles" >> (typeOf _curTarget) >> "displayName")}];
 life_action_inUse = true; //Lock out other actions
@@ -33,7 +33,11 @@ _progressBar progressSetPosition 0.01;
 _cP = 0.01;
 
 //[[0,format["%1 wurde dabei gesichtet, wie er ein Fahrzeug aufknackt.",profileName]],"life_fnc_broadcast",west,false] call life_fnc_MP;
-[[0,format["%1 wurde dabei gesichtet, wie er ein Fahrzeug aufknackt.",profileName]],"life_fnc_broadcast",true,false] call life_fnc_MP;
+if (playerSide != west && playerSide != independent) then {
+	if (_isVehicle) then {
+		[[0,format["%1 wurde dabei gesichtet, wie er ein Fahrzeug aufknackt.",profileName]],"life_fnc_broadcast",true,false] call life_fnc_MP;
+	};
+};
 
 while {true} do
 {
@@ -81,12 +85,20 @@ if(!_isVehicle) then {
 	_curTarget setVariable["transporting",false,true];
 } else {
 	_dice = random(100);
+	if (playerSide == west || playerSide == independent) then {
+		_dice = 0;
+	};
+
 	if(_dice < 30) then {
 		titleText[localize "STR_ISTR_Lock_Success","PLAIN"];
 		life_vehicles pushBack _curTarget;
-		[[_curTarget],"life_fnc_carlarm",true,false] call life_fnc_MP;
-		[-50,0] call life_fnc_D41_KSys;
-		[[getPlayerUID player,profileName,"214"],"life_fnc_wantedAdd",false,false] call life_fnc_MP;
+		if (playerSide == west || playerSide == independent) then {
+			[[format["%1 hat ein Auto aufgebrochen", name player]], "TON_fnc_logMessage", false, false] call life_fnc_MP;
+		} else {
+			[-50,0] call life_fnc_D41_KSys;
+			[[_curTarget],"life_fnc_carlarm",true,false] call life_fnc_MP;
+			[[getPlayerUID player,profileName,"214"],"life_fnc_wantedAdd",false,false] call life_fnc_MP;
+		};
 	} else {
 		[[getPlayerUID player,profileName,"215"],"life_fnc_wantedAdd",false,false] call life_fnc_MP;
 		[[0,"STR_ISTR_Lock_FailedNOTF",true,[profileName]],"life_fnc_broadcast",west,false] call life_fnc_MP;

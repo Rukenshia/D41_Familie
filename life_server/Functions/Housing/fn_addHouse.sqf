@@ -22,3 +22,4 @@ _query = format["SELECT id FROM houses WHERE pos='%1' AND pid='%2' AND owned='1'
 _queryResult = [_query,2] call DB_fnc_asyncCall;
 //systemChat format["House ID assigned: %1",_queryResult select 0];
 _house setVariable["house_id",(_queryResult select 0),true];
+diag_log format["[NEWHOUSE] HOUSE_ID: %1 owned by %2", (_queryResult select 0), _uid];

@@ -31,4 +31,4 @@ hint format["Du hast %1€ an %2 überwiesen.\n\nDie Überweisungsgebühr in Hö
 [] call SOCK_fnc_updateRequest; //Silent Sync
 
 // Log into server
-[[format["%1 hat %2€ an %3 überwiesen.",name player, [_val] call life_fnc_numberText, _unit getVariable["realname",name _unit]]], "TON_fnc_logMessage", false] call life_fnc_MP;
+[[format["[GIVEATM] von: %1, an: %3, Wert: %2€",name player, [_val] call life_fnc_numberText, _unit getVariable["realname",name _unit]]], "TON_fnc_logMessage", false] call life_fnc_MP;

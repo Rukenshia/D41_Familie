@@ -1,6 +1,6 @@
 /*
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	For the mean time it blocks the player from opening another persons backpack
 */
@@ -65,10 +65,10 @@ if(playerSide != west) then
 };
 
 //Allow alive players who've been knocked out to be looted, just not the dead ones
-/*if(_container isKindOf "Man" && !alive _container) exitWith {
+if(_container isKindOf "Man" && !alive _container) exitWith {
 	hint localize "STR_NOTF_NoLootingPerson";
 	[] spawn {
 		waitUntil {!isNull (findDisplay 602)};
 		closeDialog 0;
 	};
-};*/
+};

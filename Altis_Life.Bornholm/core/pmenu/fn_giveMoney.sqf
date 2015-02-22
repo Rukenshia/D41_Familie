@@ -23,8 +23,8 @@ if(!([_amount] call TON_fnc_isnumber)) exitWith {hint "You didn't enter an actua
 if(parseNumber(_amount) <= 0) exitWith {hint "You need to enter an actual amount you want to give.";};
 if(parseNumber(_amount) > D41_Geld) exitWith {hint "You don't have that much to give!";};
 if(player distance _curTarget > 5) exitWith {hint "The selected player is not within range";};
-hint format["You gave $%1 to %2",[(parseNumber(_amount))] call life_fnc_numberText,life_pInact_curTarget getVariable["realname",name life_pInact_curTarget]];
+hint format["Du hast %2 %1€ gegeben.",[(parseNumber(_amount))] call life_fnc_numberText,life_pInact_curTarget getVariable["realname",name life_pInact_curTarget]];
 D41_Geld = D41_Geld - (parseNumber(_amount));
 [0] call SOCK_fnc_updatePartial;
 [[_curTarget,_amount,player],"life_fnc_receiveMoney",_curTarget,false] call life_fnc_MP;
-[[format["%1 hat %2€ an %3 gegeben.",name player, [(parseNumber(_amount))] call life_fnc_numberText, life_pInact_curTarget getVariable["realname",name life_pInact_curTarget]]], "TON_fnc_logMessage", false] call life_fnc_MP;
+[[format["[GIVEMONEY] von: %1, an: %3, Wert: %2€",name player, [(parseNumber(_amount))] call life_fnc_numberText, life_pInact_curTarget getVariable["realname",name life_pInact_curTarget]]], "TON_fnc_logMessage", false] call life_fnc_MP;

@@ -18,4 +18,4 @@ hint format[localize "STR_NOTF_GivenMoney",_from getVariable["realname",name _fr
 D41_Geld = D41_Geld + (parseNumber(_val));
 [] call life_fnc_hudUpdate;
 [0] call SOCK_fnc_updatePartial;
-[[format["%1 hat Geld von %2 erhalten (GIVEMONEY).",name player, _from getVariable["realname",name _from]]], "TON_fnc_logMessage", false, false] call life_fnc_MP;
+[[format["[GIVEMONEY recv] %1 hat Geld von %2 erhalten.",name player, _from getVariable["realname",name _from]]], "TON_fnc_logMessage", false, false] call life_fnc_MP;

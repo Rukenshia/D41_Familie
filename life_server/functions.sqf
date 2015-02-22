@@ -46,7 +46,7 @@ compileFinal "
 	D41_atmGeld = D41_atmGeld + _val;
 	hint format[""%1 has wire transferred $%2 to you."",_from,[_val] call life_fnc_numberText];
 	[1] call SOCK_fnc_updatePartial;
-	[[format[""%1 hat Geld von %2 erhalten (ATM-TRANSFER)."",name player, _from]], ""TON_fnc_logMessage"", false, false] call life_fnc_MP;
+	[[format[""[GIVEATM recv] %1 hat Geld von %2 erhalten."",name player, _from]], ""TON_fnc_logMessage"", false, false] call life_fnc_MP;
 ";
 publicVariable "TON_fnc_clientWireTransfer";
 
