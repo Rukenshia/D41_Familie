@@ -1,7 +1,7 @@
 #include <macro.h>
 /*
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Buys the house?
 */
@@ -40,6 +40,10 @@ if(D41_atmGeld < (_houseCfg select 0)) exitWith {hint format [localize "STR_Hous
 
 if(_action) then {
 	if(D41_atmGeld < (_houseCfg select 0)) exitWith {hint format [localize "STR_House_NotEnough"]};
+	// First remove the money, then add the house
+	D41_atmGeld = D41_atmGeld - (_houseCfg select 0);
+	[1] call SOCK_fnc_updatePartial;
+	sleep 0.5;
 	[[_uid,_house],"TON_fnc_addHouse",false,false] call life_fnc_MP;
 	_house setVariable["house_owner",[_uid,profileName],true];
 	_house setVariable["house_soldCheck",false,true];
@@ -47,7 +51,6 @@ if(_action) then {
 	_house setVariable["house_owned",true,true];
 	_house setVariable["containers",[],true];
 	_house setVariable["uid",round(random 99999),true];
-	D41_atmGeld = D41_atmGeld - (_houseCfg select 0);
 	life_vehicles pushBack _house;
 	life_houses pushBack [str(getPosATL _house),[]];
 	_marker = createMarkerLocal [format["house_%1",(_house getVariable "uid")],getPosATL _house];
