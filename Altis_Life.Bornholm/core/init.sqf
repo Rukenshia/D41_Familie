@@ -61,14 +61,14 @@ switch (playerSide) do
 		_handle = [] spawn life_fnc_initCop;
 		waitUntil {scriptDone _handle};
 	};
-	
+
 	case civilian:
 	{
 		//Initialize Civilian Settings
 		_handle = [] spawn life_fnc_initCiv;
 		waitUntil {scriptDone _handle};
 	};
-	
+
 	case independent:
 	{
 		//Initialize Medics and blah
@@ -122,3 +122,26 @@ player enableFatigue (__GETC__(life_enableFatigue));
 [] execVM "core\functions\fn_ComDis.sqf";
 [] execVM "scripts\fastrope.sqf";
 [[getPlayerUID player,player getVariable["realname",name player]],"life_fnc_wantedProfUpdate",false,false] spawn life_fnc_MP;
+
+life_teleporting = false;
+[] spawn {
+	sleep 20.0;
+	[] spawn {
+		private["_lastpos"];
+		_lastpos = position player;
+		while {true} do {
+			if (life_teleporting) then {
+				life_teleporting = false;
+				sleep 10.0;
+			}
+			else {
+				if (player distance _lastpos > 1000.0) then {
+					[[format["[SUSPECT] %1 (UID '%2') bewegt sich verdächtig schnell!", name player, getPlayerUID player]], "TON_fnc_logMessage", false, false] call life_fnc_MP;
+					[[name player,format["Verdacht auf Speedhack<br />UID: %1",getPlayerUID player]],"SPY_fnc_notifyAdmins",true,false] call life_fnc_MP;
+				};
+				_lastpos = position player;
+				sleep 10.0;
+			};
+		};
+	};
+};

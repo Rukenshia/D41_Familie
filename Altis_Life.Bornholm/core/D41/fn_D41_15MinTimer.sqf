@@ -42,12 +42,14 @@ while{true}do
 		{
 			player allowDamage false;
 			moveOut player;
+			life_teleporting = true;
 			player setPosATL [_pos select 0, _pos select 1, (_pos select 2) + 0.5];
 			player setVelocity [0,0,0];
 			player allowDamage true;
 		}
 		else
 		{
+			life_teleporting = true;
 			player setPosATL _pos;
 		};
 		hint "nanana! Der 15min Timer ist noch nicht abgelaufen!";

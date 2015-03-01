@@ -1,7 +1,7 @@
 /*
 	File: fn_jailMe.sqf
 	Author Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Once word is received by the server the rest of the jail execution is completed.
 */
@@ -23,11 +23,11 @@ while {true} do
 		_countDown = [(_time - time),"MM:SS.MS"] call BIS_fnc_secondsToString;
 		hintSilent parseText format[(localize "STR_Jail_Time")+ "<br/> <t size='2'><t color='#FF0000'>%1</t></t><br/><br/>",_countDown];
 	};
-	
+
 	if(player distance (getMarkerPos "jail_marker") > 60) exitWith {
 		_esc = true;
 	};
-	
+
 	if((round(_time - time)) < 1) exitWith {hint ""};
 	if(!alive player && ((round(_time - time)) > 0)) exitWith {};
 	sleep 0.1;
@@ -45,16 +45,17 @@ switch (true) do
 		[5] call SOCK_fnc_updatePartial;
 		[-300,0] call life_fnc_D41_KSys;
 	};
-	
+
 	case (alive player && !_esc) :
 	{
 		life_is_arrested = false;
 		hint localize "STR_Jail_Released";
 		[[getPlayerUID player],"life_fnc_wantedRemove",false,false] call life_fnc_MP;
 		[200,0] call life_fnc_D41_KSys;
+		life_teleporting = true;
 		player setPos (getMarkerPos "jail_release");
 		[5] call SOCK_fnc_updatePartial;
-		removeUniform player; 
-		player addUniform "U_C_WorkerCoveralls";		
+		removeUniform player;
+		player addUniform "U_C_WorkerCoveralls";
 	};
 };

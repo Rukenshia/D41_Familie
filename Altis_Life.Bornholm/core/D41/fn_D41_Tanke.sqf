@@ -7,7 +7,10 @@
 */
 private["_Karre","_Tankstand","_action", "_target", "_FuelSize", "_vehicle", "_name","_ui","_progress","_pgText","_fuelMod"];
 
-_Karre = nearestObjects[getPos player,["Car","Air"],10];
+_Karre = nearestObjects[getPos player,["Car"],10];
+if(count (_Karre) == 0) then {
+	_Karre = nearestObjects[getPos player,["Air"],30];
+};
 if(count (_Karre) > 0) then
 {
 	if(D41_Tankt) exitWith {hint "Du hast nur zwei Hände um den Schlauch festzuhalten! *pfeif*"};

@@ -1,7 +1,7 @@
 /*
 	File: fn_jail.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Starts the initial process of jailing.
 */
@@ -22,6 +22,7 @@ player setVariable["transporting",false,true];
 
 titleText[localize "STR_Jail_Warn","PLAIN"];
 hint localize "STR_Jail_LicenseNOTF";
+life_teleporting = true;
 player setPos (getMarkerPos "jail_marker");
 
 if(_bad) then
@@ -33,6 +34,7 @@ if(_bad) then
 //Check to make sure they goto check
 if(player distance (getMarkerPos "jail_marker") > 40) then
 {
+	life_teleporting = true;
 	player setPos (getMarkerPos "jail_marker");
 };
 
@@ -41,7 +43,7 @@ life_is_arrested = true;
 
 removeAllWeapons player;
 {player removeMagazine _x} foreach (magazines player);
-removeUniform player; 
+removeUniform player;
 removeVest player;
 removeGoggles player;
 removeHeadgear player;

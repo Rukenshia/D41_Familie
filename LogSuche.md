@@ -6,4 +6,6 @@
 *GIVEMONEY* Bargeld geben
 *REFUND* Rückerstattung
 
+*SUSPECT* Suspection (Verdacht auf >siehe info in log<)
+
 **HOUSE_ID: n** Suche nach Aktionen für Haus

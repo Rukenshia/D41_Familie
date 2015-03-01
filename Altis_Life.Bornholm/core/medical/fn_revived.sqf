@@ -1,7 +1,7 @@
 /*
 	File: fn_revived.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	THANK YOU JESUS I WAS SAVED!
 */
@@ -30,6 +30,7 @@ switch(playerSide) do {
 
 //Bring me back to life.
 player setDir _dir;
+life_teleporting = true;
 player setPosASL (visiblePositionASL life_corpse);
 life_corpse setVariable["Revive",nil,TRUE];
 life_corpse setVariable["name",nil,TRUE];
