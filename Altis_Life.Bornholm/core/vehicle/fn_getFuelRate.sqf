@@ -95,9 +95,9 @@ switch (_type) do {
   case "D41_Heli_Transport_03_unarmed_F";
   case "D41_police_helicopter";
   case "I_Heli_light_03_unarmed_F";
-  case "civ_md500_urban": { _return = [460.0, 11.5]; };
+  case "civ_md500_urban": { _return = [460.0, 10.4]; };
   case "D41_RHS_UH60M";
-  case "D41_RHS_UH60M_MEV": { _return = [530.0, 9.6]; };
+  case "D41_RHS_UH60M_MEV": { _return = [590.0, 9.6]; };
 };
 
 _return;

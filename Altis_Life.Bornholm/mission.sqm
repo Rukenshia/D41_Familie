@@ -5008,7 +5008,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=1380;
+		items=1381;
 		class Item0
 		{
 			position[]={10495.71,12.276435,1972.1576};
@@ -19399,10 +19399,20 @@ class Mission
 			skill=0.60000002;
 			init="this enableSimulation false; this allowDamage false; this SetVectorUp [0,0,1]; this addAction [""Marktpreisabfrage"",""core\D41\D41_MarktPreisabfrage.sqf""]; this enableSimulation false; this allowDamage false; this addAction[""<t color='#ADFF2F'>ATM</t>"",life_fnc_atmMenu]; this enableSimulation false; this allowDamage false; this addAction[""Vehicle Garage"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;  life_garage_type = ""Car""; createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Fetching Vehicles....""];   life_garage_sp = ""car_g_57"";  },"""",0,false, false,"""",'!license_civ_rebel && playerSide == civilian']; this addAction[""Fahrzeug einparken"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store']; this allowDamage false; this enableSimulation false; this addAction[""Market"",life_fnc_virt_menu,""market""]; ";
 		};
+		class Item1380
+		{
+			position[]={16315.537,64.32,8526.7979};
+			azimut=50;
+			id=1630;
+			side="EMPTY";
+			vehicle="Land_CarBattery_01_F";
+			skill=0.60000002;
+			init="this enableSimulation false; this allowDamage false; this SetVectorUp [0,0,1]; this addAction [""Marktpreisabfrage"",""core\D41\D41_MarktPreisabfrage.sqf""]; this enableSimulation false; this allowDamage false; this addAction[""<t color='#ADFF2F'>ATM</t>"",life_fnc_atmMenu]; this enableSimulation false; this allowDamage false; this addAction[""Vehicle Garage"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;  life_garage_type = ""Car""; createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Fetching Vehicles....""];   life_garage_sp = ""car_g_58"";  },"""",0,false, false,"""",'!license_civ_rebel && playerSide == civilian']; this addAction[""Fahrzeug einparken"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store']; this allowDamage false; this enableSimulation false; this addAction[""Market"",life_fnc_virt_menu,""market""]; ";
+		};
 	};
 	class Markers
 	{
-		items=381;
+		items=382;
 		class Item0
 		{
 			position[]={10472.188,12.088387,1975.0801};
@@ -22541,6 +22551,12 @@ class Mission
 		{
 			position[]={5207.124,56.648426,8903.1709};
 			name="car_g_57";
+			type="Empty";
+		};
+		class Item381
+		{
+			position[]={16298.807,64.302582,8522.1025};
+			name="car_g_58";
 			type="Empty";
 		};
 	};

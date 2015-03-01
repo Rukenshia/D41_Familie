@@ -51,7 +51,7 @@ switch (_shop) do
 	case "med": {if((_shop == "med") && playerSide == independent && ((call life_mediclevel) >= 2)) then {_return =
 		["Medic Item Shop",
 					["D41_WaterBottle","D41_Kaffee","D41_Apfelsaft","D41_Pfirsichsaft","D41_EnergyDrink","D41_Donuts","D41_Hasenfleisch","D41_BeefJerky",
-					"D41_BenzinKanister","D41_Dietrich","ItemGPS","Binocular","ToolKit","FirstAidKit","Medikit","ItemRadio","NVGoggles","pmc_earpiece"]
+					"D41_BenzinKanister","D41_Dietrich","ItemGPS","Binocular", "Rangefinder", "ToolKit","FirstAidKit","Medikit","ItemRadio","NVGoggles","pmc_earpiece"]
 					]};
 				};
 	case "Werkzeuge": {_return = ["Werkzeugladen",["D41_Gartenschere","D41_Schaufel","D41_Schuerfgeschirr","D41_Bohrausruestung","D41_Spitzhacke","D41_Bolzenschneider"]]
