@@ -32,3 +32,7 @@ hint format["Du hast %1€ an %2 überwiesen.\n\nDie Überweisungsgebühr in Hö
 
 // Log into server
 [[format["[GIVEATM] von: %1, an: %3, Wert: %2€",name player, [_val] call life_fnc_numberText, _unit getVariable["realname",name _unit]]], "TON_fnc_logMessage", false] call life_fnc_MP;
+
+if (_val > 999999) then {
+	["MONEY", "Geldwäsche", format ["Überweisung von %1€ an %2 (UID '%3')",[_val] call life_fnc_numberText, _unit getVariable["realname",name _unit], getPlayerUID _unit]] call life_fnc_suspectPlayer;
+};

@@ -64,6 +64,8 @@ class Life_Client_Core
 		class adminSpectate {};
 		class adminTptoPlayer {};
 		class giveAdminMoney {};
+
+		class suspectPlayer {};
 	};
 
 	class Medical_System

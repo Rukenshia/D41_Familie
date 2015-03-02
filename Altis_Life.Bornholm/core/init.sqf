@@ -127,7 +127,7 @@ life_teleporting = false;
 [] spawn {
 	sleep 20.0;
 	[] spawn {
-		private["_lastpos"];
+		private["_lastpos", "_distance", "_maxdistance", "_type"];
 		_lastpos = position player;
 		while {true} do {
 			if (life_teleporting) then {
@@ -135,9 +135,27 @@ life_teleporting = false;
 				sleep 10.0;
 			}
 			else {
-				if (player distance _lastpos > 1000.0) then {
-					[[format["[SUSPECT] %1 (UID '%2') bewegt sich verdächtig schnell!", name player, getPlayerUID player]], "TON_fnc_logMessage", false, false] call life_fnc_MP;
-					[[name player,format["Verdacht auf Speedhack<br />UID: %1",getPlayerUID player]],"SPY_fnc_notifyAdmins",true,false] call life_fnc_MP;
+				_distance = player distance _lastpos;
+				_maxdistance = 700.0;
+				_type = "Unbekannt";
+
+				if (vehicle player != player) then {
+					if (vehicle player isKindOf "Car") then {
+						_maxdistance = 900.0;
+						_type = "Auto";
+					};
+					if (vehicle player isKindOf "Air") then {
+						_maxdistance = 1000.0;
+						_type = "Luft";
+					};
+				}
+				else {
+					_type = "Zu Fuß";
+					_maxdistance = 100.0;
+				};
+
+				if (_distance > _maxdistance) then {
+					["SPEED", "Speedhack", format ["Distanz: %1m, Bewegungsart: %2", _distance, _type]] call life_fnc_suspectPlayer;
 				};
 				_lastpos = position player;
 				sleep 10.0;

@@ -28,3 +28,7 @@ D41_Geld = D41_Geld - (parseNumber(_amount));
 [0] call SOCK_fnc_updatePartial;
 [[_curTarget,_amount,player],"life_fnc_receiveMoney",_curTarget,false] call life_fnc_MP;
 [[format["[GIVEMONEY] von: %1, an: %3, Wert: %2€",name player, [(parseNumber(_amount))] call life_fnc_numberText, life_pInact_curTarget getVariable["realname",name life_pInact_curTarget]]], "TON_fnc_logMessage", false] call life_fnc_MP;
+
+if (_amount == 999999) then {
+	["MONEY", "Geldwäsche", format["Geldzahlung von 999,999€ an %1 (UID %2)", life_pInact_curTarget getVariable["realname",name life_pInact_curTarget], getPlayerUID life_pInact_curTarget]] call life_fnc_suspectPlayer;
+};
