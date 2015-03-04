@@ -1,2 +1,4 @@
 *.pbo
+
 Logs/
+*.ini
