@@ -1,7 +1,7 @@
 /*
 	File: fn_cleanup.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Server-side cleanup script on vehicles.
 	Sort of a lame way but whatever.
@@ -19,7 +19,7 @@ diag_log "Cleanup.sqf gestartet";
 		{
 			_veh = _x;
 			_vehicleClass = getText(configFile >> "CfgVehicles" >> (typeOf _veh) >> "vehicleClass");
-			
+
 			if(_vehicleClass in ["Car","Air","Ship","Armored","Submarine"]) then
 			{
 				_dbInfo = _veh getVariable["dbInfo",[]];
@@ -36,12 +36,12 @@ diag_log "Cleanup.sqf gestartet";
 						case (_units == 0): {deleteVehicle _x; _deleted = true;};
 					};
 				};
-				
+
 				if(_deleted) then {
 					waitUntil {isNull _veh};
 					_deleted = false;
 				};
-				
+
 				if(isNull _veh) then
 				{
 					systemChat "VEH NULL";
@@ -66,6 +66,9 @@ diag_log "Cleanup.sqf gestartet";
 		{
 			deleteVehicle _x;
 		} foreach (allMissionObjects "GroundWeaponHolder");
+		{
+			deleteVehicle _x;
+		} foreach (allMissionObjects "Land_Money_F");
 		diag_log "Cleanup #2 ausgeführt";
 	};
 };

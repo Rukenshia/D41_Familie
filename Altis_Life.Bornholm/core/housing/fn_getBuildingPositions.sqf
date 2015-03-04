@@ -1,6 +1,6 @@
 /*
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Retrieves all 3D-world positions in a building and also restricts
 	certain positions due to window positioning.
@@ -23,6 +23,7 @@ case "Land_i_Stone_HouseSmall_V3_F": {[1,3,4]};
 case "Land_i_Shed_Ind_F": {[0,1,4]};
 case "Land_Slum_House02_F": {[1]};
 case "Land_i_House_Small_02_V3_F": {[1]};
+case "Land_i_House_Small_02_V1_F": {[1]};
 default {[]};
 };
 
